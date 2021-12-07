@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = Alura.WebAPI.DAL.Livros
+build_property.ProjectDir = C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.DAL.Livros\
