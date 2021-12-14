@@ -68,21 +68,6 @@ namespace Alura.ListaLeitura.WebApp.Controllers
             return View(model.ToModel());
         }
 
-        // Reconstruindo o método para retornar um json
-        [HttpGet]
-        public IActionResult DetalhesSemHTML(int id)
-        {
-
-            var model = RecuperaLivro(id);
-            if (model == null)
-            {
-                return NotFound();
-            }
-            
-            // Retorna um JsonResult
-            return Json(model.ToModel());
-
-        }
 
         // Alternativa ao método detalhe com asp 
         public ActionResult<LivroUpload> DetalhesJson(int id)
