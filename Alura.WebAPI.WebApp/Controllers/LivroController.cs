@@ -48,15 +48,59 @@ namespace Alura.ListaLeitura.WebApp.Controllers
             return File("~/images/capas/capa-vazia.png", "image/png");
         }
 
+        // refatoração do método
+        public Livro RecuperaLivro(int id)
+        {
+
+            return _repo.Find(id);
+
+        }
+
         [HttpGet]
         public IActionResult Detalhes(int id)
         {
-            var model = _repo.Find(id);
+            var model = RecuperaLivro(id);
             if (model == null)
             {
                 return NotFound();
             }
+            // Retorna uma ViewResult
             return View(model.ToModel());
+        }
+
+        // Reconstruindo o método para retornar um json
+        [HttpGet]
+        public IActionResult DetalhesSemHTML(int id)
+        {
+
+            var model = RecuperaLivro(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            
+            // Retorna um JsonResult
+            return Json(model.ToModel());
+
+        }
+
+        // Alternativa ao método detalhe com asp 
+        public ActionResult<LivroUpload> DetalhesJson(int id)
+        {
+
+            var model = RecuperaLivro(id);
+            if(model == null)
+            {
+                return NotFound();
+            }
+
+            /* 
+             * Não precisei usar o metodo Json aqui, pois
+             * o ActionResult me possibilita retornar tando um obj
+             * quando uma ação http.
+            */
+            return model.ToModel();
+
         }
 
         [HttpPost]
