@@ -8,7 +8,16 @@ using System.Threading.Tasks;
 
 namespace Alura.WebAPI.WebApp.Api
 {
-    public class LivrosController : Controller
+    /* Extendendo do controlador que vai restrirgi
+     * as opções da minha API e me dar mais segurança
+    */
+    // Atributo que indentifica um controlador de uma API
+    [ApiController]
+    /* Anotação que vai pegar o nome do meu controlador.
+     * Esse nome será usado nas minhas rotas/endpoint.
+    */
+    [Route("[Controller]")]
+    public class LivrosController : ControllerBase
     {
 
         private readonly IRepository<Livro> _repo;
@@ -18,7 +27,20 @@ namespace Alura.WebAPI.WebApp.Api
             _repo = repository;
         }
 
-        [HttpGet]
+        // Método que vai me trazer uma lista de obj
+        public IActionResult ListaDeLivros()
+        {
+            /*
+             * Para trazer os meus obj do meu db
+             * eu passo um select do linq que é parecido com
+             * os comandos do DB.
+             */
+            var lista = _repo.All.Select(l => l.ToModel()).ToList();
+            return Ok(lista);
+        }
+
+        // Informando que o meu id vai vir pela rota.
+        [HttpGet("{id}")]
         public IActionResult Recuperar(int id)
         {
 
@@ -28,7 +50,10 @@ namespace Alura.WebAPI.WebApp.Api
                 return BadRequest();
             }
 
-            return Json(model.ToModel());
+            /* Como não tenho mais o view e nem o json,
+             * no ControllerBase. Eu uso o proprio status como retorno.
+            */
+            return Ok(model.ToModel());
 
         }
 
@@ -81,7 +106,8 @@ namespace Alura.WebAPI.WebApp.Api
         }
 
         // Método de deleção
-        [HttpDelete]
+        // Informando que o meu id virá na rota.
+        [HttpDelete("{id}")]
         public IActionResult Remover(int id)
         {
 
