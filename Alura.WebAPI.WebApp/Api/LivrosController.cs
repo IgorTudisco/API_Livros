@@ -57,6 +57,26 @@ namespace Alura.WebAPI.WebApp.Api
 
         }
 
+        // Criando uma rota para a minha capa.
+        // Esse método trata a minha capa.
+        [HttpGet("{id}/capa")]
+        public IActionResult ImagemCapa(int id)
+        {
+            byte[] img = _repo.All
+                              .Where(l => l.Id == id)
+                              .Select(l => l.ImagemCapa)
+                              .FirstOrDefault();
+            if (img != null)
+            {
+
+                return File(img, "imagem/png");
+
+            }
+
+            return File("~/imagens/capas/capa-vazia.png", "imagem/png");
+
+        }
+
         // Criando um método que vai incluir um novo livro
         [HttpPost]
         public IActionResult Incluir([FromBody] LivroUpload model)

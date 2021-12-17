@@ -33,6 +33,7 @@ namespace Alura.ListaLeitura.Modelos
             };
         }
 
+        // Método que faz a converção do livro para livroApi.
         public static LivroApi ToApi(this Livro livro)
         {
             return new LivroApi

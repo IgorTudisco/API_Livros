@@ -30,6 +30,7 @@ namespace Alura.WebAPI.WebApp.Api
                 Tipo = tipo.ParaString(),
                 Livros = _repo.All
                     .Where(l => l.Lista == tipo)
+                    // Convertendo livro para livroApi
                     .Select(l => l.ToApi())
                     .ToList()
             };
