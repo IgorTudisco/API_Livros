@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Alura.WebAPI.WebApp.Api
 {
-    /* Extendendo do controlador que vai restrirgi
+    /* Estendendo do controlador que vai restrirgi
      * as opções da minha API e me dar mais segurança
     */
     // Atributo que indentifica um controlador de uma API
