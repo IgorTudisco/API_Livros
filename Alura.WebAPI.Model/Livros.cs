@@ -15,21 +15,9 @@ namespace Alura.ListaLeitura.Modelos
         public TipoListaLeitura Lista { get; set; }
     }
 
-    // Call/tipo que muda a minha imagem para uma string.
-    public class LivroAPi
-    {
-
-        public int Id { get; set; }
-        public string Titulo { get; set; }
-        public string Subtitulo { get; set; }
-        public string Resumo { get; set; }
-        public string ImagemCapa { get; set; }
-        public string Autor { get; set; }
-        public TipoListaLeitura Lista { get; set; }
-
-    }
-
-    [XmlType("Livro")]
+    // Classe/tipo que muda a minha imagem para uma string.
+    // Essa anotação, mostra o nome que você escolheu no retorno.
+    [XmlType("Livro")] 
     public class LivroApi
     {
         public int Id { get; set; }

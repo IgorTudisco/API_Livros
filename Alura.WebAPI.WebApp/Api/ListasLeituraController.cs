@@ -11,7 +11,7 @@ using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
 namespace Alura.WebAPI.WebApp.Api
 {
     [Controller]
-    [Route("[Controller]")]
+    [Route("api/[Controller]")]
     public class ListasLeituraController : ControllerBase
     {
         // Criando um repositorio

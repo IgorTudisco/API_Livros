@@ -16,7 +16,7 @@ namespace Alura.WebAPI.WebApp.Api
     /* Anotação que vai pegar o nome do meu controlador.
      * Esse nome será usado nas minhas rotas/endpoint.
     */
-    [Route("[Controller]")]
+    [Route("api/[Controller]")]
     public class LivrosController : ControllerBase
     {
 
@@ -35,7 +35,7 @@ namespace Alura.WebAPI.WebApp.Api
              * eu passo um select do linq que é parecido com
              * os comandos do DB.
              */
-            var lista = _repo.All.Select(l => l.ToModel()).ToList();
+            var lista = _repo.All.Select(l => l.ToApi()).ToList();
             return Ok(lista);
         }
 
@@ -53,7 +53,7 @@ namespace Alura.WebAPI.WebApp.Api
             /* Como não tenho mais o view e nem o json,
              * no ControllerBase. Eu uso o proprio status como retorno.
             */
-            return Ok(model.ToModel());
+            return Ok(model.ToApi());
 
         }
 
