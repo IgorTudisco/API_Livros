@@ -19,6 +19,12 @@ namespace Alura.WebAPI.WebApp.Formartters
             SupportedEncodings.Add(Encoding.UTF8);
         }
 
+        // Sobrecrevendo para que seja feito a converção apenas para um tipo
+        protected override bool CanWriteType(Type type)
+        {
+            return type == typeof(LivroApi);
+        }
+
         // Método da class implementado.
         // vai ser subescrito por esse.
         public override Task WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)

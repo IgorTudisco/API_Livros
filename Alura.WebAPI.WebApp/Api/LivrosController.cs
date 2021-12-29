@@ -1,5 +1,6 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace Alura.WebAPI.WebApp.Api
     /* Estendendo do controlador que vai restrirgi
      * as opções da minha API e me dar mais segurança
     */
+    // Protegendo a minha aplicação com a anotação Authorize.
+    [Authorize]
     // Atributo que indentifica um controlador de uma API
     [ApiController]
     /* Anotação que vai pegar o nome do meu controlador.

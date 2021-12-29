@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Alura.WebAPI.WebApp.Formartters;
+using System;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Alura.ListaLeitura.WebApp
 {
@@ -50,6 +52,30 @@ namespace Alura.ListaLeitura.WebApp
                 options => { options.OutputFormatters.Add(new LivroCsvFormatter()); }
 
                 ).AddXmlSerializerFormatters();
+
+            // Adicionando o serviço de autenticação
+            services.AddAuthentication(
+
+                options =>
+                {
+                    options.DefaultAuthenticateScheme = "JwtBearer";
+                    options.DefaultChallengeScheme = "JwtBearer";
+
+                }).AddJwtBearer("JwtBearer", options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("zika-igor-authentication-valid")),
+                        ClockSkew = TimeSpan.FromMinutes(5),
+                        // Nome dos meus validadores.
+                        ValidIssuer = "Alura.WebApp",
+                        ValidAudience = "Postman",
+                    };
+                });
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

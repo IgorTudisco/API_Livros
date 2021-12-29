@@ -1,5 +1,6 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
 
 namespace Alura.WebAPI.WebApp.Api
 {
+    [Authorize]
     [Controller]
     [Route("api/[Controller]")]
     public class ListasLeituraController : ControllerBase
@@ -50,6 +52,7 @@ namespace Alura.WebAPI.WebApp.Api
         [HttpGet("{tipo}")]
         public IActionResult Reculpera(TipoListaLeitura tipo)
         {
+            
             var lista = CriaLista(tipo);
             return Ok(lista);
         }

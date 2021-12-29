@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sV16PbivHY2AV23vwYObYWBU3eQohB3w5wJkJtOtVOe3tPaldd0oD2YCA7drukqSciYhdm/e3+sxrDTnvdamPw==",
+  "dgSpecHash": "1XiAeczpyJsi6TzuIHZp8/+cCk61jK07/daH6B0iIxS6eYcTXSSHX3zhmdoGZEFBUOo2oLPUuCmSlThLidkjJw==",
   "success": true,
   "projectFilePath": "C:\\Users\\igort\\Documents\\Cursos\\Alura\\C#_ASP.NET_CORE_REST_API\\Alura.WebAPI\\Alura.WebAPI.WebApp\\Alura.WebAPI.WebApp.csproj",
   "expectedPackageFiles": [
@@ -156,6 +156,7 @@
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\2.1.0\\microsoft.extensions.options.configurationextensions.2.1.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.0\\microsoft.extensions.primitives.2.1.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.extensions.webencoders\\2.1.0\\microsoft.extensions.webencoders.2.1.0.nupkg.sha512",
+    "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.2.4\\microsoft.identitymodel.jsonwebtokens.5.2.4.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.logging\\5.2.4\\microsoft.identitymodel.logging.5.2.4.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.protocols\\5.2.0\\microsoft.identitymodel.protocols.5.2.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\5.2.0\\microsoft.identitymodel.protocols.openidconnect.5.2.0.nupkg.sha512",
@@ -231,7 +232,7 @@
     "C:\\Users\\igort\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.globalization.extensions\\4.3.0\\system.globalization.extensions.4.3.0.nupkg.sha512",
-    "C:\\Users\\igort\\.nuget\\packages\\system.identitymodel.tokens.jwt\\5.2.0\\system.identitymodel.tokens.jwt.5.2.0.nupkg.sha512",
+    "C:\\Users\\igort\\.nuget\\packages\\system.identitymodel.tokens.jwt\\5.2.4\\system.identitymodel.tokens.jwt.5.2.4.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.interactive.async\\3.1.1\\system.interactive.async.3.1.1.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.io.compression\\4.3.0\\system.io.compression.4.3.0.nupkg.sha512",

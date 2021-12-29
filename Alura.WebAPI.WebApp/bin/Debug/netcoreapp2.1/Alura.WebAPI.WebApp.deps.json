@@ -33,9 +33,11 @@
           "Alura.WebAPI.Model": "1.0.0",
           "Alura.WebAPI.Seguranca": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.1.0",
           "Microsoft.NETCore.App": "2.1.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.0"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.0",
+          "System.IdentityModel.Tokens.Jwt": "5.2.4"
         },
         "runtime": {
           "Alura.WebAPI.WebApp.dll": {}
@@ -77,6 +79,22 @@
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.CodeAnalysis.Workspaces.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.JsonWebTokens/5.2.4": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "5.2.4",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "assemblyVersion": "5.2.4.0",
+            "fileVersion": "5.2.4.50619"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.IdentityModel.JsonWebTokens.dll": {}
         }
       },
       "Microsoft.IdentityModel.Logging/5.2.4": {
@@ -381,6 +399,23 @@
         },
         "compile": {
           "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.2.4": {
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "5.2.4",
+          "Microsoft.IdentityModel.Tokens": "5.2.4",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll": {
+            "assemblyVersion": "5.2.4.0",
+            "fileVersion": "5.2.4.50619"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.Linq.Parallel/4.3.0": {
@@ -850,7 +885,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Authentication": "2.1.0",
           "Microsoft.IdentityModel.Protocols.WsFederation": "5.2.0",
-          "System.IdentityModel.Tokens.Jwt": "5.2.0"
+          "System.IdentityModel.Tokens.Jwt": "5.2.4"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.WsFederation.dll": {}
@@ -2335,7 +2370,7 @@
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "11.0.2",
           "System.Dynamic.Runtime": "4.3.0",
-          "System.IdentityModel.Tokens.Jwt": "5.2.0"
+          "System.IdentityModel.Tokens.Jwt": "5.2.4"
         },
         "compile": {
           "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
@@ -2887,17 +2922,6 @@
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Runtime.InteropServices": "4.3.0"
-        },
-        "compileOnly": true
-      },
-      "System.IdentityModel.Tokens.Jwt/5.2.0": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "5.2.4",
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll": {}
         },
         "compileOnly": true
       },
@@ -3548,6 +3572,13 @@
       "path": "microsoft.codeanalysis.workspaces.common/2.8.0",
       "hashPath": "microsoft.codeanalysis.workspaces.common.2.8.0.nupkg.sha512"
     },
+    "Microsoft.IdentityModel.JsonWebTokens/5.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-494JCwsMINjjmrl/kOTdOtcsm3ESh8W16zg0b3nNJBgnpOu9eDgs8KDOtP3kRjSQtHcLrTsBI1XJ5FbhKm1TrA==",
+      "path": "microsoft.identitymodel.jsonwebtokens/5.2.4",
+      "hashPath": "microsoft.identitymodel.jsonwebtokens.5.2.4.nupkg.sha512"
+    },
     "Microsoft.IdentityModel.Logging/5.2.4": {
       "type": "package",
       "serviceable": true,
@@ -3666,6 +3697,13 @@
       "sha512": "sha512-0Zae/FtzeFgDBBuILeIbC/T9HMYbW4olAmi8XqqAGosSOWvXfiQLfARZEhiGd0LVXaYgXr0NhxiU1LldRP1fpQ==",
       "path": "system.composition.typedparts/1.0.31",
       "hashPath": "system.composition.typedparts.1.0.31.nupkg.sha512"
+    },
+    "System.IdentityModel.Tokens.Jwt/5.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IVIGJO1X8THAUfOIb3/KhPWALPOtXzpnP+36JBBM3BrQdnsE7kbi5m4Hpbax9JQVSdA5KG9cFeFoAtFOWfn90A==",
+      "path": "system.identitymodel.tokens.jwt/5.2.4",
+      "hashPath": "system.identitymodel.tokens.jwt.5.2.4.nupkg.sha512"
     },
     "System.Linq.Parallel/4.3.0": {
       "type": "package",
@@ -5198,13 +5236,6 @@
       "sha512": "sha512-FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ==",
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
-    },
-    "System.IdentityModel.Tokens.Jwt/5.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-E8tNMfMWPvlSF5fvmMIVZZHlGuIZzE5uktuR+GN2gFdngh0k6xoZquxfjKC02d0NqfsshNQVTCdSKXD5e9/lpA==",
-      "path": "system.identitymodel.tokens.jwt/5.2.0",
-      "hashPath": "system.identitymodel.tokens.jwt.5.2.0.nupkg.sha512"
     },
     "System.Interactive.Async/3.1.1": {
       "type": "package",
