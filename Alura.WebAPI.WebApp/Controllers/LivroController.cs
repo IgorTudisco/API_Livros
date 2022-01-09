@@ -3,6 +3,8 @@ using Alura.ListaLeitura.Persistencia;
 using Alura.ListaLeitura.Modelos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Alura.ListaLeitura.WebApp.Controllers
 {
@@ -57,15 +59,48 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Detalhes(int id)
+        public async Task<IActionResult> Detalhes(int id)
         {
-            var model = RecuperaLivro(id);
+            //http://localhost:6000/api/Livros/{id}
+            //http://localhost:6000/api/ListasLeitura/paraler
+            //http://localhost:6000/api/Livros/{id}/capa
+
+            // Consumindo a minha API REST
+
+            // Criando um obj http
+            HttpClient httpClient = new HttpClient();
+
+            /*
+             * Passando um endereço/endpoint que será igual para as
+             * minhas requisições.
+             */
+            httpClient.BaseAddress = new System.Uri("http://localhost:6000/api/");
+
+            /*
+             * Criando a variá vel que vai conter a minha resposta.
+             * Como eu preciso esperar que a minha API retorne
+             * uma resposta. Ela deve ser assincrona.
+             * Fazendo a interpolação com o meu endpoint, passando
+             * o que falta na minha uri.
+            */
+            HttpResponseMessage resposta = await httpClient.GetAsync($"Livros/{id}");
+
+            /*
+             * Método que verifica que eu recebi um status dá família
+             * 200. Se eu receber ele não faz nada, mas se eu não receber
+             * ele vai lançar uma exceção. Assim garantindo que tenha um status 200 
+             */
+            resposta.EnsureSuccessStatusCode();
+
+            // Convertendo a minha resposta pra um tipo livro.
+            var model = await resposta.Content.ReadAsAsync<LivroApi>();
+            
             if (model == null)
             {
                 return NotFound();
             }
             // Retorna uma ViewResult
-            return View(model.ToModel());
+            return View(model.ToUpload());
         }
 
 
