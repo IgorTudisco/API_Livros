@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Alura.ListaLeitura.HttpClients;
 
 namespace Alura.ListaLeitura.WebApp.Controllers
 {
@@ -13,9 +14,13 @@ namespace Alura.ListaLeitura.WebApp.Controllers
     {
         private readonly IRepository<Livro> _repo;
 
-        public LivroController(IRepository<Livro> repository)
+        // Passando a minha dependência da class que está consumindo a minha API
+        private readonly LivroApiClient _api;
+
+        public LivroController(IRepository<Livro> repository, LivroApiClient api)
         {
             _repo = repository;
+            _api = api;
         }
 
         [HttpGet]
@@ -37,12 +42,14 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult ImagemCapa(int id)
+        public async Task<IActionResult> ImagemCapa(int id)
         {
-            byte[] img = _repo.All
-                .Where(l => l.Id == id)
-                .Select(l => l.ImagemCapa)
-                .FirstOrDefault();
+            /*
+             * Chamando o meu método que vai me trazer a
+             * minha capa, pela minha dependência.
+             */
+            byte[] img = await _api.GetCapaLivroAsync(id);
+
             if (img != null)
             {
                 return File(img, "image/png");
@@ -61,39 +68,11 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Detalhes(int id)
         {
-            //http://localhost:6000/api/Livros/{id}
-            //http://localhost:6000/api/ListasLeitura/paraler
-            //http://localhost:6000/api/Livros/{id}/capa
-
-            // Consumindo a minha API REST
-
-            // Criando um obj http
-            HttpClient httpClient = new HttpClient();
-
             /*
-             * Passando um endereço/endpoint que será igual para as
-             * minhas requisições.
-             */
-            httpClient.BaseAddress = new System.Uri("http://localhost:6000/api/");
-
-            /*
-             * Criando a variá vel que vai conter a minha resposta.
-             * Como eu preciso esperar que a minha API retorne
-             * uma resposta. Ela deve ser assincrona.
-             * Fazendo a interpolação com o meu endpoint, passando
-             * o que falta na minha uri.
+            * Chamando o meu método que vai me trazer a
+            * minha capa, pela minha dependência.
             */
-            HttpResponseMessage resposta = await httpClient.GetAsync($"Livros/{id}");
-
-            /*
-             * Método que verifica que eu recebi um status dá família
-             * 200. Se eu receber ele não faz nada, mas se eu não receber
-             * ele vai lançar uma exceção. Assim garantindo que tenha um status 200 
-             */
-            resposta.EnsureSuccessStatusCode();
-
-            // Convertendo a minha resposta pra um tipo livro.
-            var model = await resposta.Content.ReadAsAsync<LivroApi>();
+            var model = await _api.GetLivroAsync(id);
             
             if (model == null)
             {

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Alura.WebAPI.WebApp.Formartters;
 using System;
 using Microsoft.IdentityModel.Tokens;
+using Alura.ListaLeitura.HttpClients;
 
 namespace Alura.ListaLeitura.WebApp
 {
@@ -39,6 +40,15 @@ namespace Alura.ListaLeitura.WebApp
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
             }).AddEntityFrameworkStores<AuthDbContext>();
+
+            /*
+             * Passando um serviço que vai contruir o meu obj e
+             * vai receber o meu base endpoint. Assim eu desaclopo essa
+             * funcionalidade da minha class.
+             */
+            services.AddHttpClient<LivroApiClient>(client => {
+                client.BaseAddress = new Uri("http://localhost:6000/api/");
+            });
 
             services.ConfigureApplicationCookie(options => {
                 options.LoginPath = "/Usuario/Login";
