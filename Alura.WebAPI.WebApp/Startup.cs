@@ -84,3 +84,25 @@ namespace Alura.ListaLeitura.WebApp
         }
     }
 }
+
+
+/*
+
+   Essas foram as referências que utilizei para preparar essa aula.
+
+    Manual da Microsoft para APIs Rest
+    https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md
+
+    Iniciando Requisições HTTP (artigo)
+    https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests
+
+    Classe HttpClient (referência)
+    https://docs.microsoft.com/pt-br/dotnet/api/system.net.http.httpclient
+
+    Paralelismo com C# na Alura
+    https://www.alura.com.br/curso-online-csharp-paralelismo-no-mundo-real
+
+    Sobre a convenção de finalizar nomes de métodos com o sufixo Async
+    https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/#BKMK_NamingConvention
+ 
+ */
