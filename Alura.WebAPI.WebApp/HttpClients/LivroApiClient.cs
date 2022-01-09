@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+// Passando um apelido para a minha importação
+using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
 
 namespace Alura.ListaLeitura.HttpClients
 {
@@ -20,6 +22,26 @@ namespace Alura.ListaLeitura.HttpClients
         {
 
             _httpClient = httpClient;
+
+        }
+
+        // Método que vai consumir a minha lista de leitura.
+        public async Task<Lista> GetListaLeituraAsync(TipoListaLeitura tipo)
+        {
+            // GetAsync vai me trazer a lista.
+            var resposta = await _httpClient.GetAsync($"listasleitura/{tipo}");
+            resposta.EnsureSuccessStatusCode();
+
+            return await resposta.Content.ReadAsAsync<Lista>();
+
+        }
+
+        // Método de consumo que vai deletar o meu livro.
+        public async Task DeleteLivroAsunc(int id)
+        {
+
+            var resposta = await _httpClient.DeleteAsync($"livros/{id}");
+            resposta.EnsureSuccessStatusCode();
 
         }
 
