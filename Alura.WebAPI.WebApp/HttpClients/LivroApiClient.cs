@@ -86,5 +86,64 @@ namespace Alura.ListaLeitura.HttpClients
 
         }
 
+        // Método para ajudar na hora de passar as partes para o meu conteudo
+        private string EnvolveComAspasDuplas(string valor)
+        {
+
+            return $"\"{valor}\"";
+
+        }
+
+        // Método que vai servir de apoio para a criação do partformData.
+        private HttpContent CreateMultipartFormDataContent(LivroUpload model)
+        {
+            // Criando o meu conteudo
+            var content = new MultipartFormDataContent();
+
+            // Add as partes do nosso conteudo, essas partes são cada campo de formulário.
+            content.Add(new StringContent(model.Titulo), EnvolveComAspasDuplas("titulo"));
+            content.Add(new StringContent(model.Subtitulo), EnvolveComAspasDuplas("subtitulo"));
+            content.Add(new StringContent(model.Resumo), EnvolveComAspasDuplas("resumo"));
+            content.Add(new StringContent(model.Autor), EnvolveComAspasDuplas("autor"));
+            content.Add(new StringContent(model.Lista.ParaString()), EnvolveComAspasDuplas("lista"));
+
+            // Verificando o arquivo de upload
+            if (model.Capa != null)
+            {
+                // Variável que vai conter a minha converção da minha img para bytes.
+                var imagemContent = new ByteArrayContent(model.Capa.ConvertToBytes());
+
+                // Informando no headers qual o tipo de conteudo que eu estou esperando.
+                // O ByteArray converte quanquer arquivo.
+                imagemContent.Headers.Add("contet-type", "imagem/png");
+
+                // Add a img no meu content
+                // Quando se passa um arquivo, devemos passar um nome para ele. Mesmo sendo um genérico
+                content.Add(imagemContent,
+                    EnvolveComAspasDuplas("capa"),
+                    EnvolveComAspasDuplas("capa.png")
+                );
+            }
+
+            return content;
+
+        }
+
+        // Método que vai passar algo pra a minha api.
+        public async Task PostLivroAsync(LivroUpload model)
+        {
+            /*
+             * O tipo HttpContent é do tipo abstrato, assim não podemos
+             * criar obj dele, mas podemos criar filhos.
+             * O conteudo tem que ser do tipo HttpContent. 
+             */
+            HttpContent content = CreateMultipartFormDataContent(model);
+
+            // Nesse caso além do endpoint temos que enviar um conteudo.
+            var resposta = await _httpClient.PostAsync("livros", content);
+            resposta.EnsureSuccessStatusCode();
+
+        }
+                
     }
 }

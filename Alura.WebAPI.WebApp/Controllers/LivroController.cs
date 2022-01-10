@@ -31,11 +31,13 @@ namespace Alura.ListaLeitura.WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Novo(LivroUpload model)
+        public async Task<IActionResult> Novo(LivroUpload model)
         {
             if (ModelState.IsValid)
             {
-                _repo.Incluir(model.ToLivro());
+                // Passando o método que está consumindo a minha api e vai incluir os dados
+                await _api.PostLivroAsync(model);
+
                 return RedirectToAction("Index", "Home");
             }
             return View(model);
