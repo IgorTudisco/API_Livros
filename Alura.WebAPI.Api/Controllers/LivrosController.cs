@@ -82,7 +82,7 @@ namespace Alura.ListaLeitura.Api.Controllers
 
         // Criando um método que vai incluir um novo livro
         [HttpPost]
-        public IActionResult Incluir([FromBody] LivroUpload model)
+        public IActionResult Incluir([FromForm] LivroUpload model)
         {
 
             if (ModelState.IsValid)
@@ -102,7 +102,7 @@ namespace Alura.ListaLeitura.Api.Controllers
 
         // Método de alteração/atualização
         [HttpPut]
-        public IActionResult Alterar([FromBody] LivroUpload model)
+        public IActionResult Alterar([FromForm] LivroUpload model)
         {
             if (ModelState.IsValid)
             {

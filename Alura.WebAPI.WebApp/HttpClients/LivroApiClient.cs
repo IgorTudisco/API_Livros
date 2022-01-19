@@ -101,11 +101,34 @@ namespace Alura.ListaLeitura.HttpClients
             var content = new MultipartFormDataContent();
 
             // Add as partes do nosso conteudo, essas partes são cada campo de formulário.
+
+            // Obrigatório
             content.Add(new StringContent(model.Titulo), EnvolveComAspasDuplas("titulo"));
-            content.Add(new StringContent(model.Subtitulo), EnvolveComAspasDuplas("subtitulo"));
-            content.Add(new StringContent(model.Resumo), EnvolveComAspasDuplas("resumo"));
-            content.Add(new StringContent(model.Autor), EnvolveComAspasDuplas("autor"));
             content.Add(new StringContent(model.Lista.ParaString()), EnvolveComAspasDuplas("lista"));
+
+            // Não obrigatório
+            if (!string.IsNullOrEmpty(model.Subtitulo))
+            {
+                content.Add(new StringContent(model.Subtitulo), EnvolveComAspasDuplas("subtitulo"));
+            }
+
+            if (!string.IsNullOrEmpty(model.Resumo))
+            {
+                content.Add(new StringContent(model.Resumo), EnvolveComAspasDuplas("resumo"));
+            }
+
+            if (!string.IsNullOrEmpty(model.Autor))
+            {
+                content.Add(new StringContent(model.Autor), EnvolveComAspasDuplas("autor"));
+            }
+
+            // Fazendo a verificação do meu obj, se ele existir. Esse obj vai ser alterado e não criado.
+            if (model.Id > 0)
+            {
+
+                content.Add(new StringContent(model.Id.ToString()), EnvolveComAspasDuplas("id"));
+
+            }
 
             // Verificando o arquivo de upload
             if (model.Capa != null)
@@ -141,6 +164,16 @@ namespace Alura.ListaLeitura.HttpClients
 
             // Nesse caso além do endpoint temos que enviar um conteudo.
             var resposta = await _httpClient.PostAsync("livros", content);
+            resposta.EnsureSuccessStatusCode();
+
+        }
+
+        // Método que vai fazer a alteração na minha api
+        public async Task PutLivroAsync(LivroUpload model)
+        {
+
+            HttpContent content = CreateMultipartFormDataContent(model);
+            var resposta = await _httpClient.PutAsync("livros", content);
             resposta.EnsureSuccessStatusCode();
 
         }

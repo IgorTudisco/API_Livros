@@ -106,19 +106,12 @@ namespace Alura.ListaLeitura.WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Detalhes(LivroUpload model)
+        public async Task<IActionResult> Detalhes(LivroUpload model)
         {
             if (ModelState.IsValid)
             {
-                var livro = model.ToLivro();
-                if (model.Capa == null)
-                {
-                    livro.ImagemCapa = _repo.All
-                        .Where(l => l.Id == livro.Id)
-                        .Select(l => l.ImagemCapa)
-                        .FirstOrDefault();
-                }
-                _repo.Alterar(livro);
+                // Passando o médoto que vai fazer a minha alteração.
+                await _api.PutLivroAsync(model);
                 return RedirectToAction("Index", "Home");
             }
             return View(model);
