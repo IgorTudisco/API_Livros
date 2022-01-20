@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using Alura.ListaLeitura.Persistencia;
-using Alura.ListaLeitura.Modelos;
+﻿using Alura.ListaLeitura.Modelos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Alura.ListaLeitura.HttpClients;
 
@@ -12,14 +9,10 @@ namespace Alura.ListaLeitura.WebApp.Controllers
     [Authorize]
     public class LivroController : Controller
     {
-        private readonly IRepository<Livro> _repo;
-
-        // Passando a minha dependência da class que está consumindo a minha API
         private readonly LivroApiClient _api;
 
-        public LivroController(IRepository<Livro> repository, LivroApiClient api)
+        public LivroController(LivroApiClient api)
         {
-            _repo = repository;
             _api = api;
         }
 
@@ -35,9 +28,7 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Passando o método que está consumindo a minha api e vai incluir os dados
                 await _api.PostLivroAsync(model);
-
                 return RedirectToAction("Index", "Home");
             }
             return View(model);
@@ -46,12 +37,7 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> ImagemCapa(int id)
         {
-            /*
-             * Chamando o meu método que vai me trazer a
-             * minha capa, pela minha dependência.
-             */
             byte[] img = await _api.GetCapaLivroAsync(id);
-
             if (img != null)
             {
                 return File(img, "image/png");
@@ -59,49 +45,15 @@ namespace Alura.ListaLeitura.WebApp.Controllers
             return File("~/images/capas/capa-vazia.png", "image/png");
         }
 
-        // refatoração do método
-        public Livro RecuperaLivro(int id)
-        {
-
-            return _repo.Find(id);
-
-        }
-
         [HttpGet]
         public async Task<IActionResult> Detalhes(int id)
         {
-            /*
-            * Chamando o meu método que vai me trazer a
-            * minha capa, pela minha dependência.
-            */
             var model = await _api.GetLivroAsync(id);
-            
             if (model == null)
             {
                 return NotFound();
             }
-            // Retorna uma ViewResult
             return View(model.ToUpload());
-        }
-
-
-        // Alternativa ao método detalhe com asp 
-        public ActionResult<LivroUpload> DetalhesJson(int id)
-        {
-
-            var model = RecuperaLivro(id);
-            if(model == null)
-            {
-                return NotFound();
-            }
-
-            /* 
-             * Não precisei usar o metodo Json aqui, pois
-             * o ActionResult me possibilita retornar tando um obj
-             * quando uma ação http.
-            */
-            return model.ToModel();
-
         }
 
         [HttpPost]
@@ -110,7 +62,6 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Passando o médoto que vai fazer a minha alteração.
                 await _api.PutLivroAsync(model);
                 return RedirectToAction("Index", "Home");
             }
@@ -121,15 +72,12 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Remover(int id)
         {
-            // Chamando o método que vai retornar o meu obj
             var model = await _api.GetLivroAsync(id);
             if (model == null)
             {
                 return NotFound();
             }
-
-            // Passando o livro que vai ser deletado
-            await _api.DeleteLivroAsunc(id);
+            await _api.DeleteLivroAsync(id);
             return RedirectToAction("Index", "Home");
         }
     }

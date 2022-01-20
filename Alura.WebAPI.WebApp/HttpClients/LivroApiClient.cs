@@ -37,7 +37,7 @@ namespace Alura.ListaLeitura.HttpClients
         }
 
         // Método de consumo que vai deletar o meu livro.
-        public async Task DeleteLivroAsunc(int id)
+        public async Task DeleteLivroAsync(int id)
         {
 
             var resposta = await _httpClient.DeleteAsync($"livros/{id}");
