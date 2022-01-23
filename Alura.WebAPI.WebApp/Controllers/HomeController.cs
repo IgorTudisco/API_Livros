@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Alura.ListaLeitura.WebApp.Controllers
 {
@@ -26,6 +27,14 @@ namespace Alura.ListaLeitura.WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
+            /* Como temos acesso ao contexto da action http conseguimos
+             * pegar o usuário principal.
+             * Esse usuário é o usuário que foi autenticado e ele tem as políticas 
+             * que foram adicionada a ele. 
+             * Com isso, podemos usar o Linq para pegar o token.
+            */
+            var token = HttpContext.User.Claims.First(c => c.Type == "Token").Value;
+
             var model = new HomeViewModel
             {
                 ParaLer = await ListaDoTipo(TipoListaLeitura.ParaLer),

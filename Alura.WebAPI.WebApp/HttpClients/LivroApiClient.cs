@@ -1,5 +1,6 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Seguranca;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,30 +22,35 @@ namespace Alura.ListaLeitura.HttpClients
         //http://localhost:6000/api/Livros/{id}/capa
 
         private readonly HttpClient _httpClient;
-        private readonly AuthApiClient _auth;
+        private readonly IHttpContextAccessor _accessor;
 
-        public LivroApiClient(HttpClient httpClient, AuthApiClient auth)
+        /*
+         * Como eu não consigo acessar o meu contexto Http fora das classes do frame work.
+         * O mesmo criou a interface para ser feita a injeção de dependência.
+         * Assim conseguimos acessar o nosso contexto.
+         * Assim eu também não precisa passar a minha api
+         */
+        public LivroApiClient(HttpClient httpClient, AuthApiClient auth, IHttpContextAccessor accessor)
         {
 
             _httpClient = httpClient;
-            _auth = auth;
+            _accessor = accessor;
+        }
+
+        // Método que vai conter o token e também vai passar para a minha autenticação.
+        private void addBearerToken()
+        {
+             var token = _accessor.HttpContext.User.Claims.First(c => c.Type == "Token").Value;
+            _httpClient.DefaultRequestHeaders.Authorization = 
+                new AuthenticationHeaderValue("Bearer",token);
+            
         }
 
         // Método que vai consumir a minha lista de leitura.
         public async Task<Lista> GetListaLeituraAsync(TipoListaLeitura tipo)
         {
-
-            // Pegando o meu token que vem do meu consumo da minha api de auth
-            var token = await _auth.PostLoginAsync(new LoginModel
-            {
-                Login = "igor2",
-                Password = "@123"
-            });
-
-            // Passando a minha autorização no hader. 
-            // Passamos o valor indicanodo que é o Bearer e o Valor do Token
-            _httpClient.DefaultRequestHeaders.Authorization = 
-                new AuthenticationHeaderValue("Bearer",token);
+            // Chamando o método que vai autorizar o meu endpoint
+            addBearerToken();
 
             // GetAsync vai me trazer a lista.
             var resposta = await _httpClient.GetAsync($"listasleitura/{tipo}");
@@ -57,7 +63,7 @@ namespace Alura.ListaLeitura.HttpClients
         // Método de consumo que vai deletar o meu livro.
         public async Task DeleteLivroAsync(int id)
         {
-
+            addBearerToken();
             var resposta = await _httpClient.DeleteAsync($"livros/{id}");
             resposta.EnsureSuccessStatusCode();
 
@@ -67,17 +73,7 @@ namespace Alura.ListaLeitura.HttpClients
         public async Task<byte[]> GetCapaLivroAsync(int id)
         {
 
-            // Pegando o meu token que vem do meu consumo da minha api de auth
-            var token = await _auth.PostLoginAsync(new LoginModel
-            {
-                Login = "igor2",
-                Password = "@123"
-            });
-
-            // Passando a minha autorização no hader. 
-            // Passamos o valor indicanodo que é o Bearer e o Valor do Token
-            _httpClient.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Bearer", token);
+            addBearerToken();
 
             // Consumindo a minha API REST
 
@@ -105,6 +101,7 @@ namespace Alura.ListaLeitura.HttpClients
         // Método que vai consumir a minha API e vai me voltar um livro
         public async Task<LivroApi> GetLivroAsync(int id)
         {
+            addBearerToken();
 
             // Consumindo a minha API REST
 
@@ -185,6 +182,8 @@ namespace Alura.ListaLeitura.HttpClients
         // Método que vai passar algo pra a minha api.
         public async Task PostLivroAsync(LivroUpload model)
         {
+            addBearerToken();
+
             /*
              * O tipo HttpContent é do tipo abstrato, assim não podemos
              * criar obj dele, mas podemos criar filhos.
@@ -201,6 +200,7 @@ namespace Alura.ListaLeitura.HttpClients
         // Método que vai fazer a alteração na minha api
         public async Task PutLivroAsync(LivroUpload model)
         {
+            addBearerToken();
 
             HttpContent content = CreateMultipartFormDataContent(model);
             var resposta = await _httpClient.PutAsync("livros", content);

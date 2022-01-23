@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Alura.WebAPI.WebApp.Formartters;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Alura.ListaLeitura.WebApp
 {
@@ -26,6 +27,7 @@ namespace Alura.ListaLeitura.WebApp
                 options.UseSqlServer(Configuration.GetConnectionString("AuthDB"));
             });
 
+            /*
             services.AddIdentity<Usuario, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 3;
@@ -33,10 +35,23 @@ namespace Alura.ListaLeitura.WebApp
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
             }).AddEntityFrameworkStores<AuthDbContext>();
+            */
 
+            // Injetando o serviço do contexto http
+            services.AddHttpContextAccessor();
+
+            // Mudando minha identificação para o esquema cookies
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            // Passando informações para configurar o meu cookies.
+            .AddCookie( opition => {
+                opition.LoginPath = "/Usuario/Login";
+            });
+
+            /*
             services.ConfigureApplicationCookie(options => {
                 options.LoginPath = "/Usuario/Login";
             });
+            */
 
             services.AddHttpClient<LivroApiClient>(client => {
                 client.BaseAddress = new Uri("http://localhost:6000/api/");
