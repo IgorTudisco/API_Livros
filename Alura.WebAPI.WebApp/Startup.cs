@@ -1,5 +1,4 @@
 ﻿using Alura.ListaLeitura.Seguranca;
-using Alura.WebAPI.WebApp.Formartters;
 using Alura.ListaLeitura.HttpClients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Alura.WebAPI.WebApp.Formartters;
 
 namespace Alura.ListaLeitura.WebApp
 {
@@ -22,7 +22,6 @@ namespace Alura.ListaLeitura.WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
             services.AddDbContext<AuthDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("AuthDB"));
             });
@@ -35,27 +34,24 @@ namespace Alura.ListaLeitura.WebApp
                 options.Password.RequireLowercase = false;
             }).AddEntityFrameworkStores<AuthDbContext>();
 
-            /*
-             * Passando um serviço que vai contruir o meu obj e
-             * vai receber o meu base endpoint. Assim eu desaclopo essa
-             * funcionalidade da minha class.
-             */
-            services.AddHttpClient<LivroApiClient>(client => {
-                client.BaseAddress = new Uri("http://localhost:6000/api/");
-            });
-
             services.ConfigureApplicationCookie(options => {
                 options.LoginPath = "/Usuario/Login";
             });
 
+            services.AddHttpClient<LivroApiClient>(client => {
+                client.BaseAddress = new Uri("http://localhost:6000/api/");
+            });
 
-            // Add opção de formatação.
-            services.AddMvc(
+            // Colocando o serviço de consumo da minha api.
+            services.AddHttpClient<AuthApiClient>(client => {
 
-                options => { options.OutputFormatters.Add(new LivroCsvFormatter()); }
+                client.BaseAddress = new Uri("http://localhost:5000/api/");
 
-                ).AddXmlSerializerFormatters();
-                        
+            });
+
+            services.AddMvc(options => {
+                options.OutputFormatters.Add(new LivroCsvFormatter());
+            }).AddXmlSerializerFormatters();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -77,6 +73,7 @@ namespace Alura.ListaLeitura.WebApp
         }
     }
 }
+
 
 
 /*

@@ -1,8 +1,10 @@
 ﻿using Alura.ListaLeitura.Modelos;
+using Alura.ListaLeitura.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 // Passando um apelido para a minha importação
 using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
@@ -11,23 +13,39 @@ namespace Alura.ListaLeitura.HttpClients
 {
     public class LivroApiClient
     {
+        // Doc dobre o multipartformdatacontent
+        //https://docs.microsoft.com/pt-br/dotnet/api/system.net.http.multipartformdatacontent
         // Endpoint de ref.
         //http://localhost:6000/api/Livros/{id}
         //http://localhost:6000/api/ListasLeitura/paraler
         //http://localhost:6000/api/Livros/{id}/capa
 
         private readonly HttpClient _httpClient;
+        private readonly AuthApiClient _auth;
 
-        public LivroApiClient(HttpClient httpClient)
+        public LivroApiClient(HttpClient httpClient, AuthApiClient auth)
         {
 
             _httpClient = httpClient;
-
+            _auth = auth;
         }
 
         // Método que vai consumir a minha lista de leitura.
         public async Task<Lista> GetListaLeituraAsync(TipoListaLeitura tipo)
         {
+
+            // Pegando o meu token que vem do meu consumo da minha api de auth
+            var token = await _auth.PostLoginAsync(new LoginModel
+            {
+                Login = "igor2",
+                Password = "@123"
+            });
+
+            // Passando a minha autorização no hader. 
+            // Passamos o valor indicanodo que é o Bearer e o Valor do Token
+            _httpClient.DefaultRequestHeaders.Authorization = 
+                new AuthenticationHeaderValue("Bearer",token);
+
             // GetAsync vai me trazer a lista.
             var resposta = await _httpClient.GetAsync($"listasleitura/{tipo}");
             resposta.EnsureSuccessStatusCode();
@@ -49,8 +67,20 @@ namespace Alura.ListaLeitura.HttpClients
         public async Task<byte[]> GetCapaLivroAsync(int id)
         {
 
+            // Pegando o meu token que vem do meu consumo da minha api de auth
+            var token = await _auth.PostLoginAsync(new LoginModel
+            {
+                Login = "igor2",
+                Password = "@123"
+            });
+
+            // Passando a minha autorização no hader. 
+            // Passamos o valor indicanodo que é o Bearer e o Valor do Token
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
+
             // Consumindo a minha API REST
-                        
+
             /*
              * Criando a variá vel que vai conter a minha resposta.
              * Como eu preciso esperar que a minha API retorne

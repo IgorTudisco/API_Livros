@@ -13,7 +13,7 @@ namespace Alura.ListaLeitura.Api.Controllers
      * as opções da minha API e me dar mais segurança
     */
     // Protegendo a minha aplicação com a anotação Authorize.
-    //[Authorize]
+    [Authorize]
     // Atributo que indentifica um controlador de uma API
     [ApiController]
     /* Anotação que vai pegar o nome do meu controlador.

@@ -11,7 +11,7 @@ using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
 
 namespace Alura.ListaLeitura.Api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Controller]
     [Route("api/[Controller]")]
     public class ListasLeituraController : ControllerBase
