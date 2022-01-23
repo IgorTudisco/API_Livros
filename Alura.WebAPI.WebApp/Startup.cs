@@ -109,5 +109,14 @@ namespace Alura.ListaLeitura.WebApp
 
     Sobre a convenção de finalizar nomes de métodos com o sufixo Async
     https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/#BKMK_NamingConvention
- 
+    
+    Cookie Authentication
+    https://docs.microsoft.com/en-us/aspnet/core/security/authentication/cookie
+
+    Como utilizar IHttpContextAccessor
+    https://www.strathweb.com/2016/12/accessing-httpcontext-outside-of-framework-components-in-asp-net-core/
+
+    Anúncio da MS indicando que o objeto para acessar o contexto Http não será mais injetado por padrão
+    https://github.com/aspnet/Hosting/issues/793
+
  */
