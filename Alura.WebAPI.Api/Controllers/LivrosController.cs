@@ -20,7 +20,7 @@ namespace Alura.ListaLeitura.Api.Controllers
      * Esse nome será usado nas minhas rotas/endpoint.
     */
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/[Controller]")]
+    [Route("api/[Controller]")]
     public class LivrosController : ControllerBase
     {
 
