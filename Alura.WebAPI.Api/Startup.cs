@@ -64,6 +64,9 @@ namespace Alura.WebAPI.Api
             });
 
 
+            // Add meu versionamento
+            services.AddApiVersioning();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -85,3 +88,9 @@ namespace Alura.WebAPI.Api
 
     }
 }
+
+/*
+ * 
+ * Indicação de leitura. https://github.com/dotnet/aspnet-api-versioning/wiki
+ * 
+ */

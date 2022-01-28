@@ -13,7 +13,9 @@ namespace Alura.ListaLeitura.Api.Controllers
 {
     [Authorize]
     [Controller]
-    [Route("api/[Controller]")]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[Controller]")]
     public class ListasLeituraController : ControllerBase
     {
         // Criando um repositorio

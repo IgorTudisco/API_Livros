@@ -2,31 +2,20 @@
 using Alura.ListaLeitura.Persistencia;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Alura.ListaLeitura.Api.Controllers
 {
-    /* Estendendo do controlador que vai restrirgi
-     * as opções da minha API e me dar mais segurança
-    */
-    // Protegendo a minha aplicação com a anotação Authorize.
-    [Authorize]
-    // Atributo que indentifica um controlador de uma API
     [ApiController]
-    /* Anotação que vai pegar o nome do meu controlador.
-     * Esse nome será usado nas minhas rotas/endpoint.
-    */
-    [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/[Controller]")]
-    public class LivrosController : ControllerBase
+    [Authorize]
+    // Anotação que vai dizer qual é a minha verção.
+    [ApiVersion("2.0")]
+    [Route("api/v{vesion:apiVersion}/livros")]
+    public class Livros2Controller : ControllerBase
     {
-
         private readonly IRepository<Livro> _repo;
 
-        public LivrosController(IRepository<Livro> repository)
+        public Livros2Controller(IRepository<Livro> repository)
         {
             _repo = repository;
         }
@@ -57,7 +46,7 @@ namespace Alura.ListaLeitura.Api.Controllers
             /* Como não tenho mais o view e nem o json,
              * no ControllerBase. Eu uso o proprio status como retorno.
             */
-            return Ok(model.ToApi());
+            return Ok(model);
 
         }
 

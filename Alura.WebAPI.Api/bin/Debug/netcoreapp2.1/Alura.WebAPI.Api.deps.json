@@ -31,6 +31,7 @@
           "Alura.WebAPI.DAL.Livros": "1.0.0",
           "Alura.WebAPI.Model": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
+          "Microsoft.AspNetCore.Mvc.Versioning": "2.3.0",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0"
         },
@@ -39,6 +40,20 @@
         },
         "compile": {
           "Alura.WebAPI.Api.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.Versioning/2.3.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Versioning.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.6731.24916"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Versioning.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
@@ -3194,6 +3209,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.AspNetCore.Mvc.Versioning/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6WyYSnndA2Z8QudPyQ+tZat0jAqJD8FpCg9kdzPatuggDaVDC9dtrFE+GIDeTcNxTdltNOHB+wCqBGauim8/rw==",
+      "path": "microsoft.aspnetcore.mvc.versioning/2.3.0",
+      "hashPath": "microsoft.aspnetcore.mvc.versioning.2.3.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",

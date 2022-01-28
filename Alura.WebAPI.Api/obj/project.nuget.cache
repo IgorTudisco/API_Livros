@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iOtUOASAUqHX0dbnwnYaGlv73w8imH5TQSJL9i8rn+FVgL4+SegHLofoEiwBbpsvx1e8PvFp6yAjlP7MO5SdsA==",
+  "dgSpecHash": "Z1XWuDzob9zeIrJd/d3TOgIRjfcTxM/9HjLguSjSMxpwGm3WkOzn6vBTEvcb1vOhKF67rPHe7PsDN2joL4LqLw==",
   "success": true,
   "projectFilePath": "C:\\Users\\igort\\Documents\\Cursos\\Alura\\C#_ASP.NET_CORE_REST_API\\Alura.WebAPI\\Alura.WebAPI.Api\\Alura.WebAPI.Api.csproj",
   "expectedPackageFiles": [
@@ -68,6 +68,7 @@
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.viewcompilation\\2.1.1\\microsoft.aspnetcore.mvc.razor.viewcompilation.2.1.1.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.aspnetcore.mvc.razorpages\\2.1.1\\microsoft.aspnetcore.mvc.razorpages.2.1.1.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.aspnetcore.mvc.taghelpers\\2.1.1\\microsoft.aspnetcore.mvc.taghelpers.2.1.1.nupkg.sha512",
+    "C:\\Users\\igort\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\2.3.0\\microsoft.aspnetcore.mvc.versioning.2.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.aspnetcore.mvc.viewfeatures\\2.1.1\\microsoft.aspnetcore.mvc.viewfeatures.2.1.1.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.aspnetcore.nodeservices\\2.1.1\\microsoft.aspnetcore.nodeservices.2.1.1.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.aspnetcore.owin\\2.1.1\\microsoft.aspnetcore.owin.2.1.1.nupkg.sha512",
