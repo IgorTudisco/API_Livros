@@ -98,4 +98,10 @@ namespace Alura.ListaLeitura.WebApp
     Anúncio da MS indicando que o objeto para acessar o contexto Http não será mais injetado por padrão
     https://github.com/aspnet/Hosting/issues/793
 
+    Artigo de Scott Hanselman sobre o assunto
+    https://www.hanselman.com/blog/ASPNETCoreRESTfulWebAPIVersioningMadeEasy.aspx
+
+    Repositório e documentação do pacote AspNet Api Versioning
+    https://github.com/Microsoft/aspnet-api-versioning
+
  */
