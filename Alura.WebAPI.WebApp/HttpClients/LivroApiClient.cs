@@ -17,9 +17,9 @@ namespace Alura.ListaLeitura.HttpClients
         // Doc dobre o multipartformdatacontent
         //https://docs.microsoft.com/pt-br/dotnet/api/system.net.http.multipartformdatacontent
         // Endpoint de ref.
-        //http://localhost:6000/api/Livros/{id}
-        //http://localhost:6000/api/ListasLeitura/paraler
-        //http://localhost:6000/api/Livros/{id}/capa
+        //http://localhost:6000/api/v1.0/Livros/{id}
+        //http://localhost:6000/api//v1.0/ListasLeitura/paraler
+        //http://localhost:6000/api//v1.0/Livros/{id}/capa
 
         private readonly HttpClient _httpClient;
         private readonly IHttpContextAccessor _accessor;

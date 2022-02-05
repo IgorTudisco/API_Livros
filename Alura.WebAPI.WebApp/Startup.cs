@@ -31,9 +31,9 @@ namespace Alura.ListaLeitura.WebApp
                 opition.LoginPath = "/Usuario/Login";
             });
 
-
+            // Passando o versionamento para o meu enderaço base.
             services.AddHttpClient<LivroApiClient>(client => {
-                client.BaseAddress = new Uri("http://localhost:6000/api/");
+                client.BaseAddress = new Uri("http://localhost:6000/api/v1.0/");
             });
 
             // Colocando o serviço de consumo da minha api.

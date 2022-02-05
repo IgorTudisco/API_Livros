@@ -9,13 +9,8 @@ namespace Alura.ListaLeitura.Api.Controllers
     [ApiController]
     [Authorize]
     // Anotação que vai dizer qual é a minha verção.
-    // Por default ele vai ler o meu versionamento por query string
-    /* 
-     * É só colocar a query (?api-version=2) na frente da
-     * rota que ele vai entender qual v. estamos apontando
-    */
     [ApiVersion("2.0")]
-    [Route("api/livros")]
+    [Route("api/v{vesion:apiVersion}/livros")]
     public class Livros2Controller : ControllerBase
     {
         private readonly IRepository<Livro> _repo;

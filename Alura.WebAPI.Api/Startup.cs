@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -66,18 +65,10 @@ namespace Alura.WebAPI.Api
 
 
             // Add meu versionamento
-            /* 
-             * Indicando que agora ele também vai aceitar
-             * a opção de mandar o versionamento pelo header
-             * e pela rota.
-             * 
-            */
-            services.AddApiVersioning(options => {
-                options.ApiVersionReader = ApiVersionReader.Combine(
-                        new QueryStringApiVersionReader("api-version"),
-                        new HeaderApiVersionReader("api-version")
-                    );
-            });
+            // No curso foi decidido que o versionamento será feito pela URL.
+            // A url só aceita o versionamento por ela, sendo a menos flexivel das opções
+            // Mas por uma questão de facilidade, vamos usa-lá. 
+            services.AddApiVersioning();
 
         }
 
