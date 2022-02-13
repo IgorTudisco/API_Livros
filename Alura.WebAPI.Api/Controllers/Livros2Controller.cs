@@ -1,5 +1,6 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Alura.WebAPI.Api.Modelo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -21,14 +22,18 @@ namespace Alura.ListaLeitura.Api.Controllers
         }
 
         // Método que vai me trazer uma lista de obj
-        public IActionResult ListaDeLivros()
+        // Recebe como um parâmetro que será passado pela URL.
+        public IActionResult ListaDeLivros([FromQuery] LivroFiltro filtro)
         {
             /*
              * Para trazer os meus obj do meu db
              * eu passo um select do linq que é parecido com
              * os comandos do DB.
              */
-            var lista = _repo.All.Select(l => l.ToApi()).ToList();
+            var lista = _repo.All
+                .AplicaFiltro(filtro)
+                .Select(l => l.ToApi())
+                .ToList();
             return Ok(lista);
         }
 

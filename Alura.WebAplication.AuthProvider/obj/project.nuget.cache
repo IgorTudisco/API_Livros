@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u6ddXq41d/kmpjBcN75YzhBfC1nJ+kIbo4y+vVsJzoULYUlyFTB4cEPm+hEll48jL+AvZWl909w1Jn5Zvz0ilQ==",
+  "dgSpecHash": "DAqOdW1uCSWBwuprjmraPk9ydqMz6BCzZHyEwPx9IghRCtdSGekh/QlYPFF+ri49vOUU8m675P8WtPP8r+Jcww==",
   "success": true,
   "projectFilePath": "C:\\Users\\igort\\Documents\\Cursos\\Alura\\C#_ASP.NET_CORE_REST_API\\Alura.WebAPI\\Alura.WebAplication.AuthProvider\\Alura.WebAplication.AuthProvider.csproj",
   "expectedPackageFiles": [
