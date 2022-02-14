@@ -23,7 +23,10 @@ namespace Alura.ListaLeitura.Api.Controllers
 
         // Método que vai me trazer uma lista de obj
         // Recebe como um parâmetro que será passado pela URL.
-        public IActionResult ListaDeLivros([FromQuery] LivroFiltro filtro)
+        // Colocando em ordem os resultados.
+        public IActionResult ListaDeLivros(
+            [FromQuery] LivroFiltro filtro,
+            [FromQuery] LivroOrdem ordem)
         {
             /*
              * Para trazer os meus obj do meu db
@@ -32,6 +35,7 @@ namespace Alura.ListaLeitura.Api.Controllers
              */
             var lista = _repo.All
                 .AplicaFiltro(filtro)
+                .AplicaOrdem(ordem)
                 .Select(l => l.ToApi())
                 .ToList();
             return Ok(lista);

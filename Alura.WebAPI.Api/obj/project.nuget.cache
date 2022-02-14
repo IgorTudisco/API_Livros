@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AC2QdoHelKLjYt76uS7ySxXv992RV63+a5nceyzzEkuZlyd8fGYx45RAEOBFRo6OeJpUlu7zDojQFYfAZ0ip+A==",
+  "dgSpecHash": "etCJq0z4BJ54M+GYYb6wrQOCVSItyQLhrf4PaYODDYNVMb7vGLndHZLVZFGpFgfNAXyafJQui4Uv5Ltb5u32Nw==",
   "success": true,
   "projectFilePath": "C:\\Users\\igort\\Documents\\Cursos\\Alura\\C#_ASP.NET_CORE_REST_API\\Alura.WebAPI\\Alura.WebAPI.Api\\Alura.WebAPI.Api.csproj",
   "expectedPackageFiles": [
@@ -224,7 +224,7 @@
     "C:\\Users\\igort\\.nuget\\packages\\system.io.pipelines\\4.5.0\\system.io.pipelines.4.5.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
-    "C:\\Users\\igort\\.nuget\\packages\\system.linq.queryable\\4.0.1\\system.linq.queryable.4.0.1.nupkg.sha512",
+    "C:\\Users\\igort\\.nuget\\packages\\system.linq.queryable\\4.3.0\\system.linq.queryable.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
@@ -281,7 +281,8 @@
     "C:\\Users\\igort\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\igort\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\igort\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\igort\\.nuget\\packages\\wilx.system.linq.dynamic.core\\2.1.0\\wilx.system.linq.dynamic.core.2.1.0.nupkg.sha512"
   ],
   "logs": []
 }
