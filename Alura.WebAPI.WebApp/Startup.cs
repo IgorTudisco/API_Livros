@@ -104,4 +104,12 @@ namespace Alura.ListaLeitura.WebApp
     Repositório e documentação do pacote AspNet Api Versioning
     https://github.com/Microsoft/aspnet-api-versioning
 
+    Parte do manual da MS que fala sobre coleções com muitos dados
+    https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#94-big-collections
+
+    Artigos que implementam essas soluções e pelos quais me baseei
+    Paginação: https://tahirnaushad.com/2017/09/01/paging-in-asp-net-core-2-0-web-api/
+    Ordenação: https://tahirnaushad.com/2017/09/01/sorting-in-asp-net-core-2-0-web-api/
+    Filtro: https://tahirnaushad.com/2017/09/01/filtering-in-asp-net-core-2-0-web-api/
+
  */

@@ -26,19 +26,21 @@ namespace Alura.ListaLeitura.Api.Controllers
         // Colocando em ordem os resultados.
         public IActionResult ListaDeLivros(
             [FromQuery] LivroFiltro filtro,
-            [FromQuery] LivroOrdem ordem)
+            [FromQuery] LivroOrdem ordem,
+            [FromQuery] LivroPaginacao paginacao)
         {
             /*
              * Para trazer os meus obj do meu db
              * eu passo um select do linq que é parecido com
              * os comandos do DB.
              */
-            var lista = _repo.All
+            // mudando para o tipo páginado.
+            var livroPaginado = _repo.All
                 .AplicaFiltro(filtro)
                 .AplicaOrdem(ordem)
                 .Select(l => l.ToApi())
-                .ToList();
-            return Ok(lista);
+                .ToLivroPaginado(paginacao);
+            return Ok(livroPaginado);
         }
 
         // Informando que o meu id vai vir pela rota.
