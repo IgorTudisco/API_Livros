@@ -1,6 +1,7 @@
 ﻿using Alura.ListaLeitura.Api.Formartters;
 using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Alura.WebAPI.Api.Filtros;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,9 +38,25 @@ namespace Alura.WebAPI.Api
             // Add opção de formatação.
             services.AddMvc(
 
-                options => { options.OutputFormatters.Add(new LivroCsvFormatter()); }
+                options =>
+                {
+                    // Formatação
+                    options.OutputFormatters.Add(new LivroCsvFormatter());
+
+                    // Passando o Filtro de erro para toda a minha API.
+                    options.Filters.Add(typeof(ErrorResponseFilter));
+                }
 
                 ).AddXmlSerializerFormatters();
+
+            // Desabilitando a função automática da API Controller
+            services.Configure<ApiBehaviorOptions>(
+                
+                option =>
+                {
+                    option.SuppressModelStateInvalidFilter = true;
+                }
+            );
 
             services.AddAuthentication(
 

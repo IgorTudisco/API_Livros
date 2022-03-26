@@ -97,7 +97,7 @@ namespace Alura.ListaLeitura.Api.Controllers
 
             }
 
-            return BadRequest();
+            return BadRequest(ErrorResponse.FromModelState(ModelState));
 
         }
 

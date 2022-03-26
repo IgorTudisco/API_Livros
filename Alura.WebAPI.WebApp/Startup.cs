@@ -112,4 +112,13 @@ namespace Alura.ListaLeitura.WebApp
     Ordenação: https://tahirnaushad.com/2017/09/01/sorting-in-asp-net-core-2-0-web-api/
     Filtro: https://tahirnaushad.com/2017/09/01/filtering-in-asp-net-core-2-0-web-api/
 
+    Tópico sobre erros no guideline da MS
+    https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#51-errors
+
+    Documentação sobre filtros no AspNet Core
+    https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters
+
+    Filtro de ModelState Invalid nos ApiControllers e como desabilitar
+    http://www.talkingdotnet.com/disable-automatic-model-state-validation-in-asp-net-core-2-1/
+
  */
