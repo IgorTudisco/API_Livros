@@ -93,10 +93,11 @@ namespace Alura.ListaLeitura.Api.Controllers
                 var livro = model.ToLivro();
                 _repo.Incluir(livro);
                 var uri = Url.Action("Recuperar", new { id = livro.Id });
-                return Created(uri, livro);
+                return Created(uri, livro); //201
 
             }
 
+            // Passando uma mensagem de erro personalizada.
             return BadRequest(ErrorResponse.FromModelState(ModelState));
 
         }

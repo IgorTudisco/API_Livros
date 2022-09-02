@@ -45,7 +45,8 @@ namespace Alura.WebAPI.Api.Modelo
              * Convertendo um erro do modo estage para uma string.
              * 
              * Usando o SelectMany conseguimos tetirar
-             * a lista que está no segundo nível
+             * a lista que está no segundo nível.
+             * (Tirando uma lista de uma lista).
              */
             var erros = modelState.Values.SelectMany(m => m.Errors);
 
@@ -58,6 +59,9 @@ namespace Alura.WebAPI.Api.Modelo
                 /*
                  * Esse erro não é um InnerError,
                  * por isso temos que tirar ele do State
+                 * 
+                 * Ele retorna um enumerável e por isso passamos um ToArray().
+                 * 
                 */
                 Detalhes = erros.Select(e => e.ErrorMessage).ToArray()
             };
