@@ -72,6 +72,14 @@
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
             "wilx.System.Linq.Dynamic.Core": {
               "target": "Package",
               "version": "[2.1.0, )"

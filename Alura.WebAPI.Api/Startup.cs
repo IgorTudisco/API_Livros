@@ -10,9 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Alura.WebAPI.Api
@@ -87,6 +90,54 @@ namespace Alura.WebAPI.Api
             // Mas por uma questão de facilidade, vamos usa-lá. 
             services.AddApiVersioning();
 
+            // Abilitando o gerenciamento do Swagger
+            services.AddSwaggerGen(options => {
+
+                options.DocInclusionPredicate((docName, apiDesc) =>
+                {
+                    if (!apiDesc.TryGetMethodInfo(out MethodInfo methodInfo)) return false;
+
+                    var versions = methodInfo.DeclaringType
+                        .GetCustomAttributes(true)
+                        .OfType<ApiVersionAttribute>()
+                        .SelectMany(attr => attr.Versions);
+
+                    return versions.Any(v => $"v{v.ToString()}" == docName);
+                });
+
+                options.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey",
+                    Description = "Autenticação Bearer via JWT"
+                });
+                options.AddSecurityRequirement(
+                    new Dictionary<string, IEnumerable<string>> {
+                        { "Bearer", new string[] { } }
+                });
+
+                options.EnableAnnotations();
+
+                options.DescribeAllEnumsAsStrings();
+                options.DescribeStringEnumsInCamelCase();
+
+                options.DocumentFilter<TagDescriptionsDocumentFilter>();
+                options.OperationFilter<AuthResponsesOperationFilter>();
+                options.OperationFilter<AddInfoToParamVersionOperationFilter>();
+
+                options.SwaggerDoc("v1.0", new Info { Title = "Lista de Leitura API - v1.0", Version = "1.0" });
+                options.SwaggerDoc(
+                    "v2.0",
+                    new Info
+                    {
+                        Title = "Lista de Leitura API",
+                        Description = "API com serviços relacionados às listas de leitura, produzidas para a Alura.",
+                        Version = "2.0"
+                    }
+                );
+            });
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -103,6 +154,15 @@ namespace Alura.WebAPI.Api
 
             app.UseMvc();
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Versão 1.0");
+
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "Versão 2.0");
+
+            });
 
         }
 

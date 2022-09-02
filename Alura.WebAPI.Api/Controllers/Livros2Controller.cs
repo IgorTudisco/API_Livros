@@ -3,6 +3,7 @@ using Alura.ListaLeitura.Persistencia;
 using Alura.WebAPI.Api.Modelo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Linq;
 
 namespace Alura.ListaLeitura.Api.Controllers
@@ -11,6 +12,12 @@ namespace Alura.ListaLeitura.Api.Controllers
     [Authorize]
     // Anotação que vai dizer qual é a minha verção.
     [ApiVersion("2.0")]
+    /* 
+     * Anotação para que o Swagger documente somente essa verção da API.
+     * Assim podemos documentar diferentes partes da nossa API.
+     * 
+     */
+    [ApiExplorerSettings(GroupName = "v2")]
     [Route("api/v{vesion:apiVersion}/livros")]
     public class Livros2Controller : ControllerBase
     {
@@ -45,6 +52,10 @@ namespace Alura.ListaLeitura.Api.Controllers
 
         // Informando que o meu id vai vir pela rota.
         [HttpGet("{id}")]
+        // Mudondo o tipo de resposta no Swagger.
+        [ProducesResponseType(statusCode: 200, Type = typeof(LivroApi))]
+        [ProducesResponseType(statusCode:500, Type =typeof(ErrorResponse))]
+        [ProducesResponseType(statusCode: 400)]
         public IActionResult Recuperar(int id)
         {
 

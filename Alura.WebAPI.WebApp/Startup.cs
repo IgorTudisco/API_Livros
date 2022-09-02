@@ -121,4 +121,16 @@ namespace Alura.ListaLeitura.WebApp
     Filtro de ModelState Invalid nos ApiControllers e como desabilitar
     http://www.talkingdotnet.com/disable-automatic-model-state-validation-in-asp-net-core-2-1/
 
+    Artigo de Jeremy Likness sobre o Swagger
+    https://blog.jeremylikness.com/5-rest-api-designs-in-dot-net-core-6-9e87cf562241
+
+    Especificação OpenAPI
+    https://github.com/OAI/OpenAPI-Specification
+
+    Site do Swagger
+    https://swagger.io/
+
+    Sobre o pacote Swashbuckle
+    https://docs.microsoft.com/aspnet/core/tutorials/getting-started-with-swashbuckle https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/master/README.md
+
  */

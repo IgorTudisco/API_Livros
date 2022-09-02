@@ -7,4 +7,3 @@ C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alur
 C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Model\obj\Debug\netcoreapp2.1\Alura.WebAPI.Model.csproj.CoreCompileInputs.cache
 C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Model\obj\Debug\netcoreapp2.1\Alura.WebAPI.Model.dll
 C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Model\obj\Debug\netcoreapp2.1\Alura.WebAPI.Model.pdb
-C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Model\obj\Debug\netcoreapp2.1\Alura.WebAPI.Model.csproj.AssemblyReference.cache
