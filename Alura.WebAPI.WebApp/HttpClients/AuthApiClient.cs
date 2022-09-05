@@ -1,44 +1,41 @@
 ﻿using Alura.ListaLeitura.Seguranca;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Alura.ListaLeitura.HttpClients
 {
-    // Criando uma classe que vai conter a idéia de login
     public class LoginResult
     {
-        public bool Succeeded { get; set; }
         public string Token { get; set; }
+        public bool Succeeded { get; set; }
+
+        public LoginResult(string token, HttpStatusCode statusCode)
+        {
+            Token = token;
+            Succeeded = (statusCode == HttpStatusCode.OK);
+        }
     }
 
-    // Class que vai consumir minha Api de authorization
     public class AuthApiClient
     {
-        private HttpClient _httpclient;
+        private readonly HttpClient _httpClient;
 
-        public AuthApiClient(HttpClient httpClients)
+        public AuthApiClient(HttpClient httpClient)
         {
-            _httpclient = httpClients;
+            _httpClient = httpClient;
         }
 
-        // Método que vai retornar o meu token
         public async Task<LoginResult> PostLoginAsync(LoginModel model)
         {
-            // Pegando a minha requisição Jason com o meu token
-            // Como eu tenho duas opção de string a serialização é feita pelo sistema .Net
-            var resposta = await _httpclient.PostAsJsonAsync("login", model);
-
-            // Passando um resposta de sucesso e retornando o meu token.
-            return new LoginResult
-            {
-                Succeeded = resposta.IsSuccessStatusCode,
-                Token = await resposta.Content.ReadAsStringAsync()
-            };
-
+            var resposta = await _httpClient.PostAsJsonAsync<LoginModel>("login", model);
+            return new LoginResult(await resposta.Content.ReadAsStringAsync(), resposta.StatusCode);
         }
 
+        public async Task PostRegisterAsync(RegisterViewModel model)
+        {
+            var resposta = await _httpClient.PostAsJsonAsync<RegisterViewModel>("usuarios", model);
+            resposta.EnsureSuccessStatusCode();
+        }
     }
 }

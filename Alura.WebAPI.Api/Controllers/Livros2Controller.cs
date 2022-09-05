@@ -1,24 +1,21 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
-using Alura.WebAPI.Api.Modelo;
+using Alura.ListaLeitura.Filtro;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 using System.Linq;
+using Alura.ListaLeitura.Ordenacao;
+using Alura.ListaLeitura.Paginacao;
+using Alura.ListaLeitura.Erros;
+using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Alura.ListaLeitura.Api.Controllers
 {
-    [ApiController]
     [Authorize]
-    // Anotação que vai dizer qual é a minha verção.
+    [ApiController]
     [ApiVersion("2.0")]
-    /* 
-     * Anotação para que o Swagger documente somente essa verção da API.
-     * Assim podemos documentar diferentes partes da nossa API.
-     * 
-     */
-    [ApiExplorerSettings(GroupName = "v2")]
-    [Route("api/v{vesion:apiVersion}/livros")]
+    [Route("api/v{version:apiVersion}/livros")]
     public class Livros2Controller : ControllerBase
     {
         private readonly IRepository<Livro> _repo;
@@ -28,93 +25,100 @@ namespace Alura.ListaLeitura.Api.Controllers
             _repo = repository;
         }
 
-        // Método que vai me trazer uma lista de obj
-        // Recebe como um parâmetro que será passado pela URL.
-        // Colocando em ordem os resultados.
+        [SwaggerOperation(
+            Summary = "Recupera uma coleção paginada de livros.",
+            Tags = new[] {"Livros"}
+        )]
+        [HttpGet]
+        [ProducesResponseType(statusCode: 200, Type = typeof(LivroPaginado))]
+        [ProducesResponseType(statusCode: 500, Type = typeof(ErroResponse))]
+        [ProducesResponseType(statusCode: 404)]
         public IActionResult ListaDeLivros(
-            [FromQuery] LivroFiltro filtro,
+            [FromQuery] LivroFiltro filtro, 
             [FromQuery] LivroOrdem ordem,
             [FromQuery] LivroPaginacao paginacao)
         {
-            /*
-             * Para trazer os meus obj do meu db
-             * eu passo um select do linq que é parecido com
-             * os comandos do DB.
-             */
-            // mudando para o tipo páginado.
-            var livroPaginado = _repo.All
+            var lista = _repo.All
                 .AplicaFiltro(filtro)
-                .AplicaOrdem(ordem)
-                .Select(l => l.ToApi())
-                .ToLivroPaginado(paginacao);
-            return Ok(livroPaginado);
+                .AplicaOrdenacao(ordem)
+                .Select(l => l.ToApi());
+
+            var listaPaginada = LivroPaginado.From(paginacao, lista);
+
+            if (listaPaginada.Resultado.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(listaPaginada);
         }
 
-        // Informando que o meu id vai vir pela rota.
         [HttpGet("{id}")]
-        // Mudondo o tipo de resposta no Swagger.
+        [SwaggerOperation(
+            Summary = "Recupera o livro identificado por seu {id}.",
+            Tags = new[] { "Livros" },
+            Produces = new[] {"application/json", "application/xml"}
+        )]
         [ProducesResponseType(statusCode: 200, Type = typeof(LivroApi))]
-        [ProducesResponseType(statusCode:500, Type =typeof(ErrorResponse))]
-        [ProducesResponseType(statusCode: 400)]
-        public IActionResult Recuperar(int id)
+        [ProducesResponseType(statusCode: 500, Type = typeof(ErroResponse))]
+        [ProducesResponseType(404)]
+        public IActionResult Recuperar(
+            [SwaggerParameter("Id do livro.", Required = true)] int id)
         {
-
             var model = _repo.Find(id);
             if (model == null)
             {
-                return BadRequest();
+                return NotFound();
             }
-
-            /* Como não tenho mais o view e nem o json,
-             * no ControllerBase. Eu uso o proprio status como retorno.
-            */
-            return Ok(model);
-
+            return Ok(model.ToApi());
         }
 
-        // Criando uma rota para a minha capa.
-        // Esse método trata a minha capa.
+        [SwaggerOperation(
+            Summary = "Recupera a capa do livro identificado por seu {id}.",
+            Tags = new [] {"Livros"},
+            Produces = new [] {"image/png"}
+        )]
         [HttpGet("{id}/capa")]
-        public IActionResult ImagemCapa(int id)
+        public IActionResult ImagemCapa(
+                [SwaggerParameter("Id do livro.", Required = true)] int id)
         {
             byte[] img = _repo.All
-                              .Where(l => l.Id == id)
-                              .Select(l => l.ImagemCapa)
-                              .FirstOrDefault();
+                .Where(l => l.Id == id)
+                .Select(l => l.ImagemCapa)
+                .FirstOrDefault();
             if (img != null)
             {
-
-                return File(img, "imagem/png");
-
+                return File(img, "image/png");
             }
-
-            return File("~/imagens/capas/capa-vazia.png", "imagem/png");
-
+            return File("~/images/capas/capa-vazia.png", "image/png");
         }
 
-        // Criando um método que vai incluir um novo livro
         [HttpPost]
+        [SwaggerOperation(
+            Summary = "Registra novo livro na base.",
+            Tags = new[] {"Livros"}
+            )]
+        [ProducesResponseType(statusCode: 201, Type = typeof(LivroApi))]
+        [ProducesResponseType(statusCode: 400, Type = typeof(ErroResponse))]
+        [ProducesResponseType(statusCode: 500, Type = typeof(ErroResponse))]
         public IActionResult Incluir([FromForm] LivroUpload model)
         {
-
             if (ModelState.IsValid)
             {
-
-                // Vai converter um LivroUpload para um Livro.
                 var livro = model.ToLivro();
-                _repo.Incluir(livro);
+                _repo.Incluir(livro); 
                 var uri = Url.Action("Recuperar", new { id = livro.Id });
-                return Created(uri, livro); //201
-
+                return Created(uri, livro.ToApi()); //201
             }
-
-            // Passando uma mensagem de erro personalizada.
-            return BadRequest(ErrorResponse.FromModelState(ModelState));
-
+            return BadRequest(ErroResponse.FromModelStateError(ModelState));
         }
 
-        // Método de alteração/atualização
         [HttpPut]
+        [SwaggerOperation(
+            Summary = "Modifica o livro na base.",
+            Tags = new[] { "Livros"}) ]
+        [ProducesResponseType(statusCode: 200)]
+        [ProducesResponseType(400, Type = typeof(ErroResponse))]
+        [ProducesResponseType(500, Type = typeof(ErroResponse))]
         public IActionResult Alterar([FromForm] LivroUpload model)
         {
             if (ModelState.IsValid)
@@ -122,43 +126,34 @@ namespace Alura.ListaLeitura.Api.Controllers
                 var livro = model.ToLivro();
                 if (model.Capa == null)
                 {
-                    /* Função que irá pesquisar e comparar
-                     * os IDs para alterar o livro certo
-                    */
                     livro.ImagemCapa = _repo.All
                         .Where(l => l.Id == livro.Id)
                         .Select(l => l.ImagemCapa)
                         .FirstOrDefault();
-
                 }
-
                 _repo.Alterar(livro);
-                return Ok(); // 200
-
+                return Ok(); //200
             }
-
-            return BadRequest(); // 400
-
+            return BadRequest(ErroResponse.FromModelStateError(ModelState));
         }
 
-        // Método de deleção
-        // Informando que o meu id virá na rota.
         [HttpDelete("{id}")]
+        [SwaggerOperation(
+            Summary = "Exclui o livro da base.",
+            Tags = new[] { "Livros" }
+        )]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(500, Type = typeof(ErroResponse))]
         public IActionResult Remover(int id)
         {
-
             var model = _repo.Find(id);
             if (model == null)
             {
-
                 return NotFound();
-
             }
-
             _repo.Excluir(model);
-            return NoContent(); // 203
-
+            return NoContent(); //204
         }
-
     }
 }

@@ -61,11 +61,6 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
-            "Microsoft.AspNetCore.Razor.Design": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.2, )"
-            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -74,15 +69,15 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[4.0.1, )"
+              "version": "[3.0.0, )"
             },
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",
               "version": "[4.0.1, )"
             },
-            "wilx.System.Linq.Dynamic.Core": {
+            "System.Linq.Dynamic.Core": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[1.0.9, )"
             }
           },
           "imports": [

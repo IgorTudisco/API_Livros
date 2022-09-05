@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Alura.ListaLeitura.HttpClients;
 using Alura.ListaLeitura.Seguranca;
-using Alura.ListaLeitura.WebApp.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -15,20 +15,17 @@ namespace Alura.ListaLeitura.WebApp.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly AuthApiClient _auth;
+        private readonly AuthApiClient _api;
 
-        public UsuarioController(AuthApiClient auth)
+        public UsuarioController(AuthApiClient authApi)
         {
-
-            _auth = auth;
-
+            _api = authApi;
         }
 
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Login()
         {
-            await HttpContext.SignOutAsync();
             return View();
         }
 
@@ -39,31 +36,39 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Passando o meu token que vai ser gerado na hora do loging do usuário
-                var result = await _auth.PostLoginAsync(model);
-                // var result = await _signInManager.PasswordSignInAsync(model.Login, model.Password, false, false);
+                var result = await _api.PostLoginAsync(model);
                 if (result.Succeeded)
                 {
-                    // Criando uma lista de políticas/identidades com a quantidade que eu quiser.
-                    List<Claim> claims = new List<Claim>
+                    //onde guardar o token? 
+                    //através de um cookie de autenticação - link do MS Docs
+                    
+                    //primeiro vamos criar os direitos/reinvindicações/claims
+                    var claims = new List<Claim>
                     {
-                        // Quardando as infos de login
                         new Claim(ClaimTypes.Name, model.Login),
-
-                        // Quardando o meu token
-                        new Claim("Token", result.Token)
-
+                        new Claim("Token", result.Token) //em uma claim eu guardo o token!
                     };
 
-                    // Criando uma identidade para o meu usuário e passando o esquema de autenticação.
-                    // Usando o Cookies do .Net
-                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    //e guardar esses direitos na identidade principal
+                    var claimsIdentity = new ClaimsIdentity(
+                        claims,
+                        CookieAuthenticationDefaults.AuthenticationScheme
+                    );
 
-                    // Passando uma identidade para o meu usuário principal
-                    ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                    var authProp = new AuthenticationProperties
+                    {
+                        IssuedUtc = DateTime.UtcNow,
+                        //configurar expiração do cookie para um valor menor que a expiração do token
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(25),
+                        IsPersistent = true
+                    };
 
-                    // Quardando as minhas imformações de login
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+                    //e finalmente autenticar via cookie com essa identidade
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity),
+                        authProp);
+
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -87,14 +92,8 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*var user = new Usuario { UserName = model.Login };
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }*/
+                await _api.PostRegisterAsync(model);
+                return RedirectToAction("Index", "Home");
             }
             return View(model);
         }
@@ -102,7 +101,7 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.SignOutAsync();
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
 

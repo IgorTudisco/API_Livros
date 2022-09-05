@@ -1,212 +1,134 @@
 ﻿using Alura.ListaLeitura.Modelos;
+using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net.Http.Headers;
 using Alura.ListaLeitura.Seguranca;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-// Passando um apelido para a minha importação
-using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
 
 namespace Alura.ListaLeitura.HttpClients
 {
     public class LivroApiClient
     {
-        // Doc dobre o multipartformdatacontent
-        //https://docs.microsoft.com/pt-br/dotnet/api/system.net.http.multipartformdatacontent
-        // Endpoint de ref.
-        //http://localhost:6000/api/v1.0/Livros/{id}
-        //http://localhost:6000/api//v1.0/ListasLeitura/paraler
-        //http://localhost:6000/api//v1.0/Livros/{id}/capa
-
         private readonly HttpClient _httpClient;
-        private readonly IHttpContextAccessor _accessor;
+        private readonly IHttpContextAccessor _acessor;
 
-        /*
-         * Como eu não consigo acessar o meu contexto Http fora das classes do frame work.
-         * O mesmo criou a interface para ser feita a injeção de dependência.
-         * Assim conseguimos acessar o nosso contexto.
-         * Assim eu também não precisa passar a minha api
-         */
-        public LivroApiClient(HttpClient httpClient, AuthApiClient auth, IHttpContextAccessor accessor)
+        public LivroApiClient(HttpClient client, IHttpContextAccessor accessor)
         {
-
-            _httpClient = httpClient;
-            _accessor = accessor;
+            _httpClient = client;
+            _acessor = accessor;
         }
 
-        // Método que vai conter o token e também vai passar para a minha autenticação.
-        private void addBearerToken()
+        private void AddBearerToken()
         {
-             var token = _accessor.HttpContext.User.Claims.First(c => c.Type == "Token").Value;
-            _httpClient.DefaultRequestHeaders.Authorization = 
-                new AuthenticationHeaderValue("Bearer",token);
-            
+            var token = _acessor.HttpContext.User.Claims.First(c => c.Type == "Token").Value;
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
-        // Método que vai consumir a minha lista de leitura.
-        public async Task<Lista> GetListaLeituraAsync(TipoListaLeitura tipo)
-        {
-            // Chamando o método que vai autorizar o meu endpoint
-            addBearerToken();
-
-            // GetAsync vai me trazer a lista.
-            var resposta = await _httpClient.GetAsync($"listasleitura/{tipo}");
-            resposta.EnsureSuccessStatusCode();
-
-            return await resposta.Content.ReadAsAsync<Lista>();
-
-        }
-
-        // Método de consumo que vai deletar o meu livro.
-        public async Task DeleteLivroAsync(int id)
-        {
-            addBearerToken();
-            var resposta = await _httpClient.DeleteAsync($"livros/{id}");
-            resposta.EnsureSuccessStatusCode();
-
-        }
-
-        // Método que vai consumir a minha API e vai me voltar a capa de um livro
         public async Task<byte[]> GetCapaLivroAsync(int id)
         {
+            AddBearerToken();
 
-            addBearerToken();
-
-            // Consumindo a minha API REST
-
-            /*
-             * Criando a variá vel que vai conter a minha resposta.
-             * Como eu preciso esperar que a minha API retorne
-             * uma resposta. Ela deve ser assincrona.
-             * Fazendo a interpolação com o meu endpoint, passando
-             * o que falta na minha uri.
-            */
-            HttpResponseMessage resposta = await _httpClient.GetAsync($"Livros/{id}/capa");
-
-            /*
-             * Método que verifica que eu recebi um status dá família
-             * 200. Se eu receber ele não faz nada, mas se eu não receber
-             * ele vai lançar uma exceção. Assim garantindo que tenha um status 200 
-             */
+            var resposta = await _httpClient.GetAsync($"livros/{id}/capa?api-version=1.0");
             resposta.EnsureSuccessStatusCode();
-
-            // Retornando a capa convertida.
             return await resposta.Content.ReadAsByteArrayAsync();
-
         }
 
-        // Método que vai consumir a minha API e vai me voltar um livro
         public async Task<LivroApi> GetLivroAsync(int id)
         {
-            addBearerToken();
-
-            // Consumindo a minha API REST
-
-            HttpResponseMessage resposta = await _httpClient.GetAsync($"Livros/{id}");
-
+            AddBearerToken();
+            var resposta = await _httpClient.GetAsync($"livros/{id}?api-version=1.0");
             resposta.EnsureSuccessStatusCode();
-
             return await resposta.Content.ReadAsAsync<LivroApi>();
+        }
+
+        public async Task DeleteLivroAsync(int id)
+        {
+            AddBearerToken();
+            var resposta = await _httpClient.DeleteAsync($"livros/{id}?api-version=1.0");
+            resposta.EnsureSuccessStatusCode();
+            if (resposta.StatusCode != System.Net.HttpStatusCode.NoContent)
+            {
+                throw new InvalidOperationException("Código de Status Http 204 esperado!");
+            }
+        }
+
+        public async Task PostLivroAsync(LivroUpload livro)
+        {
+            AddBearerToken();
+            HttpContent content = CreateMultipartContent(livro.ToLivro());
+            var resposta = await _httpClient.PostAsync("livros?api-version=1.0", content);
+            resposta.EnsureSuccessStatusCode();
+            if (resposta.StatusCode != System.Net.HttpStatusCode.Created)
+            {
+                throw new InvalidOperationException("Código de Status Http 201 esperado!");
+            }
+        }
+
+        public async Task PutLivroAsync(LivroUpload livro)
+        {
+            AddBearerToken();
+            HttpContent content = CreateMultipartContent(livro.ToLivro());
+            var resposta = await _httpClient.PutAsync("livros?api-version=1.0", content);
+            resposta.EnsureSuccessStatusCode();
+            if (resposta.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new InvalidOperationException("Código de Status Http 200 esperado!");
+            }
 
         }
 
-        // Método para ajudar na hora de passar as partes para o meu conteudo
         private string EnvolveComAspasDuplas(string valor)
         {
-
-            return $"\"{valor}\"";
-
+            return $"\u0022{valor}\u0022";
         }
 
-        // Método que vai servir de apoio para a criação do partformData.
-        private HttpContent CreateMultipartFormDataContent(LivroUpload model)
+        private HttpContent CreateMultipartContent(Livro livro)
         {
-            // Criando o meu conteudo
             var content = new MultipartFormDataContent();
 
-            // Add as partes do nosso conteudo, essas partes são cada campo de formulário.
+            content.Add(new StringContent(livro.Titulo), EnvolveComAspasDuplas("titulo"));
+            content.Add(new StringContent(livro.Lista.ParaString()), EnvolveComAspasDuplas("lista"));
 
-            // Obrigatório
-            content.Add(new StringContent(model.Titulo), EnvolveComAspasDuplas("titulo"));
-            content.Add(new StringContent(model.Lista.ParaString()), EnvolveComAspasDuplas("lista"));
-
-            // Não obrigatório
-            if (!string.IsNullOrEmpty(model.Subtitulo))
+            if (livro.Id > 0)
             {
-                content.Add(new StringContent(model.Subtitulo), EnvolveComAspasDuplas("subtitulo"));
+                content.Add(new StringContent(Convert.ToString(livro.Id)), EnvolveComAspasDuplas("id"));
             }
 
-            if (!string.IsNullOrEmpty(model.Resumo))
+            if (!string.IsNullOrEmpty(livro.Subtitulo))
             {
-                content.Add(new StringContent(model.Resumo), EnvolveComAspasDuplas("resumo"));
+                content.Add(new StringContent(livro.Subtitulo), EnvolveComAspasDuplas("subtitulo"));
             }
 
-            if (!string.IsNullOrEmpty(model.Autor))
+            if (!string.IsNullOrEmpty(livro.Resumo))
             {
-                content.Add(new StringContent(model.Autor), EnvolveComAspasDuplas("autor"));
+                content.Add(new StringContent(livro.Resumo), EnvolveComAspasDuplas("resumo"));
             }
 
-            // Fazendo a verificação do meu obj, se ele existir. Esse obj vai ser alterado e não criado.
-            if (model.Id > 0)
+            if (!string.IsNullOrEmpty(livro.Autor))
             {
-
-                content.Add(new StringContent(model.Id.ToString()), EnvolveComAspasDuplas("id"));
-
+                content.Add(new StringContent(livro.Autor), EnvolveComAspasDuplas("autor"));
             }
 
-            // Verificando o arquivo de upload
-            if (model.Capa != null)
+            if (livro.ImagemCapa != null)
             {
-                // Variável que vai conter a minha converção da minha img para bytes.
-                var imagemContent = new ByteArrayContent(model.Capa.ConvertToBytes());
-
-                // Informando no headers qual o tipo de conteudo que eu estou esperando.
-                // O ByteArray converte quanquer arquivo.
-                imagemContent.Headers.Add("contet-type", "imagem/png");
-
-                // Add a img no meu content
-                // Quando se passa um arquivo, devemos passar um nome para ele. Mesmo sendo um genérico
-                content.Add(imagemContent,
-                    EnvolveComAspasDuplas("capa"),
-                    EnvolveComAspasDuplas("capa.png")
-                );
+                var imageContent = new ByteArrayContent(livro.ImagemCapa);
+                imageContent.Headers.ContentType = MediaTypeHeaderValue.Parse("image/png");
+                content.Add(imageContent, EnvolveComAspasDuplas("capa"), EnvolveComAspasDuplas("capa.png"));
             }
 
             return content;
-
         }
 
-        // Método que vai passar algo pra a minha api.
-        public async Task PostLivroAsync(LivroUpload model)
+        public async Task<Lista> GetListaLeituraAsync(TipoListaLeitura tipo)
         {
-            addBearerToken();
+            AddBearerToken();
 
-            /*
-             * O tipo HttpContent é do tipo abstrato, assim não podemos
-             * criar obj dele, mas podemos criar filhos.
-             * O conteudo tem que ser do tipo HttpContent. 
-             */
-            HttpContent content = CreateMultipartFormDataContent(model);
-
-            // Nesse caso além do endpoint temos que enviar um conteudo.
-            var resposta = await _httpClient.PostAsync("livros", content);
+            var resposta = await _httpClient.GetAsync($"listasleitura/{tipo}?api-version=1.0");
             resposta.EnsureSuccessStatusCode();
-
+            return await resposta.Content.ReadAsAsync<Lista>();
         }
-
-        // Método que vai fazer a alteração na minha api
-        public async Task PutLivroAsync(LivroUpload model)
-        {
-            addBearerToken();
-
-            HttpContent content = CreateMultipartFormDataContent(model);
-            var resposta = await _httpClient.PutAsync("livros", content);
-            resposta.EnsureSuccessStatusCode();
-
-        }
-                
     }
 }

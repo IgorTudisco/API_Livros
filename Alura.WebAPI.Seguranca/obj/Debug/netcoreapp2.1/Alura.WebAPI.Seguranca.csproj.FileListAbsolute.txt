@@ -1,0 +1,38 @@
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.deps.json
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.csproj.CoreCompileInputs.cache
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfoInputs.cache
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfo.cs
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\dpcos\Documents\Visual Studio 2017\Projetos\Teste\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.deps.json
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.csproj.AssemblyReference.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfoInputs.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfo.cs
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.csproj.CoreCompileInputs.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.deps.json
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.csproj.AssemblyReference.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfoInputs.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfo.cs
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.csproj.CoreCompileInputs.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\FinalApiLivros.Professor\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.deps.json
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\bin\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.csproj.AssemblyReference.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfoInputs.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.AssemblyInfo.cs
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.csproj.CoreCompileInputs.cache
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.dll
+C:\Users\igort\Documents\Cursos\Alura\C#_ASP.NET_CORE_REST_API\Alura.WebAPI\Alura.WebAPI.Seguranca\obj\Debug\netcoreapp2.1\Alura.WebAPI.Seguranca.pdb

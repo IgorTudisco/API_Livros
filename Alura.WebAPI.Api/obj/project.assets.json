@@ -1134,7 +1134,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Razor.Design/2.1.2": {
+      "Microsoft.AspNetCore.Razor.Design/2.1.1": {
         "type": "package",
         "build": {
           "build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props": {}
@@ -2878,18 +2878,19 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore/4.0.1": {
+      "Swashbuckle.AspNetCore/3.0.0": {
         "type": "package",
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "4.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "4.0.1",
-          "Swashbuckle.AspNetCore.SwaggerUI": "4.0.1"
+          "NETStandard.Library": "1.6.1",
+          "Swashbuckle.AspNetCore.Swagger": "3.0.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "3.0.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "3.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.dll": {}
         }
       },
       "Swashbuckle.AspNetCore.Annotations/4.0.1": {
@@ -2932,19 +2933,20 @@
           "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/4.0.1": {
+      "Swashbuckle.AspNetCore.SwaggerUI/3.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Routing": "2.0.0",
-          "Microsoft.AspNetCore.StaticFiles": "2.0.0",
-          "Microsoft.Extensions.FileProviders.Embedded": "2.0.0",
+          "Microsoft.AspNetCore.Routing": "1.0.4",
+          "Microsoft.AspNetCore.StaticFiles": "1.0.4",
+          "Microsoft.Extensions.FileProviders.Embedded": "1.0.1",
+          "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "9.0.1"
         },
         "compile": {
-          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -3384,6 +3386,18 @@
           "lib/netstandard1.6/System.Linq.dll": {}
         }
       },
+      "System.Linq.Dynamic.Core/1.0.9": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Linq.Dynamic.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Linq.Dynamic.Core.dll": {}
+        }
+      },
       "System.Linq.Expressions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3412,17 +3426,17 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Linq.Queryable/4.3.0": {
+      "System.Linq.Queryable/4.0.1": {
         "type": "package",
         "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Linq.Expressions": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0"
         },
         "compile": {
           "ref/netstandard1.0/System.Linq.Queryable.dll": {}
@@ -4415,248 +4429,6 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "wilx.System.Linq.Dynamic.Core/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Linq.Queryable": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.dll": {},
-          "lib/netstandard2.0/Microsoft.Win32.Primitives.dll": {},
-          "lib/netstandard2.0/System.AppContext.dll": {},
-          "lib/netstandard2.0/System.Collections.Concurrent.dll": {},
-          "lib/netstandard2.0/System.Collections.NonGeneric.dll": {},
-          "lib/netstandard2.0/System.Collections.Specialized.dll": {},
-          "lib/netstandard2.0/System.Collections.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.Composition.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.EventBasedAsync.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.Primitives.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.TypeConverter.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.dll": {},
-          "lib/netstandard2.0/System.Console.dll": {},
-          "lib/netstandard2.0/System.Core.dll": {},
-          "lib/netstandard2.0/System.Data.Common.dll": {},
-          "lib/netstandard2.0/System.Data.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Contracts.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Debug.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.FileVersionInfo.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Process.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.StackTrace.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.TextWriterTraceListener.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Tools.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.TraceSource.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Tracing.dll": {},
-          "lib/netstandard2.0/System.Drawing.Primitives.dll": {},
-          "lib/netstandard2.0/System.Drawing.dll": {},
-          "lib/netstandard2.0/System.Dynamic.Runtime.dll": {},
-          "lib/netstandard2.0/System.Globalization.Calendars.dll": {},
-          "lib/netstandard2.0/System.Globalization.Extensions.dll": {},
-          "lib/netstandard2.0/System.Globalization.dll": {},
-          "lib/netstandard2.0/System.IO.Compression.FileSystem.dll": {},
-          "lib/netstandard2.0/System.IO.Compression.ZipFile.dll": {},
-          "lib/netstandard2.0/System.IO.Compression.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.DriveInfo.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.Primitives.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.Watcher.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.dll": {},
-          "lib/netstandard2.0/System.IO.IsolatedStorage.dll": {},
-          "lib/netstandard2.0/System.IO.MemoryMappedFiles.dll": {},
-          "lib/netstandard2.0/System.IO.Pipes.dll": {},
-          "lib/netstandard2.0/System.IO.UnmanagedMemoryStream.dll": {},
-          "lib/netstandard2.0/System.IO.dll": {},
-          "lib/netstandard2.0/System.Linq.Dynamic.Core.dll": {},
-          "lib/netstandard2.0/System.Linq.Expressions.dll": {},
-          "lib/netstandard2.0/System.Linq.Parallel.dll": {},
-          "lib/netstandard2.0/System.Linq.Queryable.dll": {},
-          "lib/netstandard2.0/System.Linq.dll": {},
-          "lib/netstandard2.0/System.Net.Http.dll": {},
-          "lib/netstandard2.0/System.Net.NameResolution.dll": {},
-          "lib/netstandard2.0/System.Net.NetworkInformation.dll": {},
-          "lib/netstandard2.0/System.Net.Ping.dll": {},
-          "lib/netstandard2.0/System.Net.Primitives.dll": {},
-          "lib/netstandard2.0/System.Net.Requests.dll": {},
-          "lib/netstandard2.0/System.Net.Security.dll": {},
-          "lib/netstandard2.0/System.Net.Sockets.dll": {},
-          "lib/netstandard2.0/System.Net.WebHeaderCollection.dll": {},
-          "lib/netstandard2.0/System.Net.WebSockets.Client.dll": {},
-          "lib/netstandard2.0/System.Net.WebSockets.dll": {},
-          "lib/netstandard2.0/System.Net.dll": {},
-          "lib/netstandard2.0/System.Numerics.dll": {},
-          "lib/netstandard2.0/System.ObjectModel.dll": {},
-          "lib/netstandard2.0/System.Reflection.Extensions.dll": {},
-          "lib/netstandard2.0/System.Reflection.Primitives.dll": {},
-          "lib/netstandard2.0/System.Reflection.dll": {},
-          "lib/netstandard2.0/System.Resources.Reader.dll": {},
-          "lib/netstandard2.0/System.Resources.ResourceManager.dll": {},
-          "lib/netstandard2.0/System.Resources.Writer.dll": {},
-          "lib/netstandard2.0/System.Runtime.CompilerServices.VisualC.dll": {},
-          "lib/netstandard2.0/System.Runtime.Extensions.dll": {},
-          "lib/netstandard2.0/System.Runtime.Handles.dll": {},
-          "lib/netstandard2.0/System.Runtime.InteropServices.RuntimeInformation.dll": {},
-          "lib/netstandard2.0/System.Runtime.InteropServices.dll": {},
-          "lib/netstandard2.0/System.Runtime.Numerics.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Formatters.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Json.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Primitives.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Xml.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.dll": {},
-          "lib/netstandard2.0/System.Runtime.dll": {},
-          "lib/netstandard2.0/System.Security.Claims.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Algorithms.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Csp.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Encoding.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Primitives.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.X509Certificates.dll": {},
-          "lib/netstandard2.0/System.Security.Principal.dll": {},
-          "lib/netstandard2.0/System.Security.SecureString.dll": {},
-          "lib/netstandard2.0/System.ServiceModel.Web.dll": {},
-          "lib/netstandard2.0/System.Text.Encoding.Extensions.dll": {},
-          "lib/netstandard2.0/System.Text.Encoding.dll": {},
-          "lib/netstandard2.0/System.Text.RegularExpressions.dll": {},
-          "lib/netstandard2.0/System.Threading.Overlapped.dll": {},
-          "lib/netstandard2.0/System.Threading.Tasks.Parallel.dll": {},
-          "lib/netstandard2.0/System.Threading.Tasks.dll": {},
-          "lib/netstandard2.0/System.Threading.Thread.dll": {},
-          "lib/netstandard2.0/System.Threading.ThreadPool.dll": {},
-          "lib/netstandard2.0/System.Threading.Timer.dll": {},
-          "lib/netstandard2.0/System.Threading.dll": {},
-          "lib/netstandard2.0/System.Transactions.dll": {},
-          "lib/netstandard2.0/System.ValueTuple.dll": {},
-          "lib/netstandard2.0/System.Web.dll": {},
-          "lib/netstandard2.0/System.Windows.dll": {},
-          "lib/netstandard2.0/System.Xml.Linq.dll": {},
-          "lib/netstandard2.0/System.Xml.ReaderWriter.dll": {},
-          "lib/netstandard2.0/System.Xml.Serialization.dll": {},
-          "lib/netstandard2.0/System.Xml.XDocument.dll": {},
-          "lib/netstandard2.0/System.Xml.XPath.XDocument.dll": {},
-          "lib/netstandard2.0/System.Xml.XPath.dll": {},
-          "lib/netstandard2.0/System.Xml.XmlDocument.dll": {},
-          "lib/netstandard2.0/System.Xml.XmlSerializer.dll": {},
-          "lib/netstandard2.0/System.Xml.dll": {},
-          "lib/netstandard2.0/System.dll": {},
-          "lib/netstandard2.0/mscorlib.dll": {},
-          "lib/netstandard2.0/netstandard.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.dll": {},
-          "lib/netstandard2.0/Microsoft.Win32.Primitives.dll": {},
-          "lib/netstandard2.0/System.AppContext.dll": {},
-          "lib/netstandard2.0/System.Collections.Concurrent.dll": {},
-          "lib/netstandard2.0/System.Collections.NonGeneric.dll": {},
-          "lib/netstandard2.0/System.Collections.Specialized.dll": {},
-          "lib/netstandard2.0/System.Collections.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.Composition.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.EventBasedAsync.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.Primitives.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.TypeConverter.dll": {},
-          "lib/netstandard2.0/System.ComponentModel.dll": {},
-          "lib/netstandard2.0/System.Console.dll": {},
-          "lib/netstandard2.0/System.Core.dll": {},
-          "lib/netstandard2.0/System.Data.Common.dll": {},
-          "lib/netstandard2.0/System.Data.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Contracts.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Debug.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.FileVersionInfo.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Process.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.StackTrace.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.TextWriterTraceListener.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Tools.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.TraceSource.dll": {},
-          "lib/netstandard2.0/System.Diagnostics.Tracing.dll": {},
-          "lib/netstandard2.0/System.Drawing.Primitives.dll": {},
-          "lib/netstandard2.0/System.Drawing.dll": {},
-          "lib/netstandard2.0/System.Dynamic.Runtime.dll": {},
-          "lib/netstandard2.0/System.Globalization.Calendars.dll": {},
-          "lib/netstandard2.0/System.Globalization.Extensions.dll": {},
-          "lib/netstandard2.0/System.Globalization.dll": {},
-          "lib/netstandard2.0/System.IO.Compression.FileSystem.dll": {},
-          "lib/netstandard2.0/System.IO.Compression.ZipFile.dll": {},
-          "lib/netstandard2.0/System.IO.Compression.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.DriveInfo.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.Primitives.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.Watcher.dll": {},
-          "lib/netstandard2.0/System.IO.FileSystem.dll": {},
-          "lib/netstandard2.0/System.IO.IsolatedStorage.dll": {},
-          "lib/netstandard2.0/System.IO.MemoryMappedFiles.dll": {},
-          "lib/netstandard2.0/System.IO.Pipes.dll": {},
-          "lib/netstandard2.0/System.IO.UnmanagedMemoryStream.dll": {},
-          "lib/netstandard2.0/System.IO.dll": {},
-          "lib/netstandard2.0/System.Linq.Dynamic.Core.dll": {},
-          "lib/netstandard2.0/System.Linq.Expressions.dll": {},
-          "lib/netstandard2.0/System.Linq.Parallel.dll": {},
-          "lib/netstandard2.0/System.Linq.Queryable.dll": {},
-          "lib/netstandard2.0/System.Linq.dll": {},
-          "lib/netstandard2.0/System.Net.Http.dll": {},
-          "lib/netstandard2.0/System.Net.NameResolution.dll": {},
-          "lib/netstandard2.0/System.Net.NetworkInformation.dll": {},
-          "lib/netstandard2.0/System.Net.Ping.dll": {},
-          "lib/netstandard2.0/System.Net.Primitives.dll": {},
-          "lib/netstandard2.0/System.Net.Requests.dll": {},
-          "lib/netstandard2.0/System.Net.Security.dll": {},
-          "lib/netstandard2.0/System.Net.Sockets.dll": {},
-          "lib/netstandard2.0/System.Net.WebHeaderCollection.dll": {},
-          "lib/netstandard2.0/System.Net.WebSockets.Client.dll": {},
-          "lib/netstandard2.0/System.Net.WebSockets.dll": {},
-          "lib/netstandard2.0/System.Net.dll": {},
-          "lib/netstandard2.0/System.Numerics.dll": {},
-          "lib/netstandard2.0/System.ObjectModel.dll": {},
-          "lib/netstandard2.0/System.Reflection.Extensions.dll": {},
-          "lib/netstandard2.0/System.Reflection.Primitives.dll": {},
-          "lib/netstandard2.0/System.Reflection.dll": {},
-          "lib/netstandard2.0/System.Resources.Reader.dll": {},
-          "lib/netstandard2.0/System.Resources.ResourceManager.dll": {},
-          "lib/netstandard2.0/System.Resources.Writer.dll": {},
-          "lib/netstandard2.0/System.Runtime.CompilerServices.VisualC.dll": {},
-          "lib/netstandard2.0/System.Runtime.Extensions.dll": {},
-          "lib/netstandard2.0/System.Runtime.Handles.dll": {},
-          "lib/netstandard2.0/System.Runtime.InteropServices.RuntimeInformation.dll": {},
-          "lib/netstandard2.0/System.Runtime.InteropServices.dll": {},
-          "lib/netstandard2.0/System.Runtime.Numerics.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Formatters.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Json.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Primitives.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.Xml.dll": {},
-          "lib/netstandard2.0/System.Runtime.Serialization.dll": {},
-          "lib/netstandard2.0/System.Runtime.dll": {},
-          "lib/netstandard2.0/System.Security.Claims.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Algorithms.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Csp.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Encoding.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.Primitives.dll": {},
-          "lib/netstandard2.0/System.Security.Cryptography.X509Certificates.dll": {},
-          "lib/netstandard2.0/System.Security.Principal.dll": {},
-          "lib/netstandard2.0/System.Security.SecureString.dll": {},
-          "lib/netstandard2.0/System.ServiceModel.Web.dll": {},
-          "lib/netstandard2.0/System.Text.Encoding.Extensions.dll": {},
-          "lib/netstandard2.0/System.Text.Encoding.dll": {},
-          "lib/netstandard2.0/System.Text.RegularExpressions.dll": {},
-          "lib/netstandard2.0/System.Threading.Overlapped.dll": {},
-          "lib/netstandard2.0/System.Threading.Tasks.Parallel.dll": {},
-          "lib/netstandard2.0/System.Threading.Tasks.dll": {},
-          "lib/netstandard2.0/System.Threading.Thread.dll": {},
-          "lib/netstandard2.0/System.Threading.ThreadPool.dll": {},
-          "lib/netstandard2.0/System.Threading.Timer.dll": {},
-          "lib/netstandard2.0/System.Threading.dll": {},
-          "lib/netstandard2.0/System.Transactions.dll": {},
-          "lib/netstandard2.0/System.ValueTuple.dll": {},
-          "lib/netstandard2.0/System.Web.dll": {},
-          "lib/netstandard2.0/System.Windows.dll": {},
-          "lib/netstandard2.0/System.Xml.Linq.dll": {},
-          "lib/netstandard2.0/System.Xml.ReaderWriter.dll": {},
-          "lib/netstandard2.0/System.Xml.Serialization.dll": {},
-          "lib/netstandard2.0/System.Xml.XDocument.dll": {},
-          "lib/netstandard2.0/System.Xml.XPath.XDocument.dll": {},
-          "lib/netstandard2.0/System.Xml.XPath.dll": {},
-          "lib/netstandard2.0/System.Xml.XmlDocument.dll": {},
-          "lib/netstandard2.0/System.Xml.XmlSerializer.dll": {},
-          "lib/netstandard2.0/System.Xml.dll": {},
-          "lib/netstandard2.0/System.dll": {},
-          "lib/netstandard2.0/mscorlib.dll": {},
-          "lib/netstandard2.0/netstandard.dll": {}
-        }
-      },
       "Alura.WebAPI.DAL.Livros/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -5601,10 +5373,10 @@
         "microsoft.aspnetcore.razor.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "fe1+dpy+eM4IX1zodsvkihO1Spuj0NecfStWzvkYoMo7/ziOsqSv4vFK36ZpBfHa4gpdCEwaU46EPzdq+ZDYhQ==",
+    "Microsoft.AspNetCore.Razor.Design/2.1.1": {
+      "sha512": "1XHObHLx6A0/57ZmLG9gfKMO/Z/gQjRXPFWQDMlPZGYwcfgufvSdmI2+RYvR5DGkbba9HIHC35ClNQ2yVNIohw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.razor.design/2.1.2",
+      "path": "microsoft.aspnetcore.razor.design/2.1.1",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -5612,7 +5384,7 @@
         "build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.CodeGeneration.targets",
         "build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props",
         "buildMultiTargeting/Microsoft.AspNetCore.Razor.Design.props",
-        "microsoft.aspnetcore.razor.design.2.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.razor.design.2.1.1.nupkg.sha512",
         "microsoft.aspnetcore.razor.design.nuspec",
         "tasks/net46/Microsoft.AspNetCore.Razor.Tasks.dll",
         "tasks/netstandard2.0/Microsoft.AspNetCore.Razor.Tasks.dll",
@@ -5969,10 +5741,7 @@
       "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
       "type": "package",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
-      "hasTools": true,
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.rtf",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
@@ -6798,8 +6567,6 @@
       "type": "package",
       "path": "microsoft.identitymodel.logging/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Microsoft.IdentityModel.Logging.dll",
         "lib/net45/Microsoft.IdentityModel.Logging.xml",
         "lib/net451/Microsoft.IdentityModel.Logging.dll",
@@ -6815,8 +6582,6 @@
       "type": "package",
       "path": "microsoft.identitymodel.protocols/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Microsoft.IdentityModel.Protocols.dll",
         "lib/net45/Microsoft.IdentityModel.Protocols.xml",
         "lib/net451/Microsoft.IdentityModel.Protocols.dll",
@@ -6832,8 +6597,6 @@
       "type": "package",
       "path": "microsoft.identitymodel.protocols.openidconnect/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/net45/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/net451/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
@@ -6849,8 +6612,6 @@
       "type": "package",
       "path": "microsoft.identitymodel.protocols.wsfederation/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Microsoft.IdentityModel.Protocols.WsFederation.dll",
         "lib/net45/Microsoft.IdentityModel.Protocols.WsFederation.xml",
         "lib/net451/Microsoft.IdentityModel.Protocols.WsFederation.dll",
@@ -6866,8 +6627,6 @@
       "type": "package",
       "path": "microsoft.identitymodel.tokens/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Microsoft.IdentityModel.Tokens.dll",
         "lib/net45/Microsoft.IdentityModel.Tokens.xml",
         "lib/net451/Microsoft.IdentityModel.Tokens.dll",
@@ -6883,8 +6642,6 @@
       "type": "package",
       "path": "microsoft.identitymodel.tokens.saml/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Microsoft.IdentityModel.Tokens.Saml.dll",
         "lib/net45/Microsoft.IdentityModel.Tokens.Saml.xml",
         "lib/net451/Microsoft.IdentityModel.Tokens.Saml.dll",
@@ -6900,8 +6657,6 @@
       "type": "package",
       "path": "microsoft.identitymodel.xml/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Microsoft.IdentityModel.Xml.dll",
         "lib/net45/Microsoft.IdentityModel.Xml.xml",
         "lib/net451/Microsoft.IdentityModel.Xml.dll",
@@ -7312,8 +7067,6 @@
       "type": "package",
       "path": "netstandard.library/2.0.3",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -7441,8 +7194,6 @@
       "type": "package",
       "path": "newtonsoft.json/11.0.2",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -7471,8 +7222,6 @@
       "type": "package",
       "path": "newtonsoft.json.bson/1.0.1",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/Newtonsoft.Json.Bson.dll",
         "lib/net45/Newtonsoft.Json.Bson.xml",
         "lib/netstandard1.3/Newtonsoft.Json.Bson.dll",
@@ -7486,8 +7235,6 @@
       "type": "package",
       "path": "remotion.linq/2.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net35/Remotion.Linq.XML",
         "lib/net35/Remotion.Linq.dll",
         "lib/net40/Remotion.Linq.XML",
@@ -7507,8 +7254,6 @@
       "type": "package",
       "path": "runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7521,8 +7266,6 @@
       "type": "package",
       "path": "runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7535,8 +7278,6 @@
       "type": "package",
       "path": "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7549,8 +7290,6 @@
       "type": "package",
       "path": "runtime.native.system/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7563,8 +7302,6 @@
       "type": "package",
       "path": "runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7578,8 +7315,6 @@
       "type": "package",
       "path": "runtime.native.system.io.compression/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7592,8 +7327,6 @@
       "type": "package",
       "path": "runtime.native.system.net.http/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7606,8 +7339,6 @@
       "type": "package",
       "path": "runtime.native.system.security.cryptography.apple/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7620,8 +7351,6 @@
       "type": "package",
       "path": "runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7634,8 +7363,6 @@
       "type": "package",
       "path": "runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7648,8 +7375,6 @@
       "type": "package",
       "path": "runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7662,8 +7387,6 @@
       "type": "package",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512",
@@ -7676,8 +7399,6 @@
       "type": "package",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7690,8 +7411,6 @@
       "type": "package",
       "path": "runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7704,8 +7423,6 @@
       "type": "package",
       "path": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7718,8 +7435,6 @@
       "type": "package",
       "path": "runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7732,8 +7447,6 @@
       "type": "package",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -7746,8 +7459,6 @@
       "type": "package",
       "path": "runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7762,8 +7473,6 @@
       "type": "package",
       "path": "runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7778,8 +7487,6 @@
       "type": "package",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7789,15 +7496,16 @@
         "version.txt"
       ]
     },
-    "Swashbuckle.AspNetCore/4.0.1": {
-      "sha512": "Zq6lkFieuFPNDwXwQ+e8i5zy2VMrexcRFU8mQORxqIc8r7Y+qKX63vg57yL1HeGCINHQGGzxGfw2rP63IeEqhg==",
+    "Swashbuckle.AspNetCore/3.0.0": {
+      "sha512": "aM17YeBlYLIftD+4xCUPw/yT+FLjCyOCFinikXj42hntFYkkAuTRGLm9x+t7kfC13/OBiMJ1XEjl3MGeknx1cw==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore/4.0.1",
+      "path": "swashbuckle.aspnetcore/3.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.dll",
-        "swashbuckle.aspnetcore.4.0.1.nupkg.sha512",
+        "lib/net451/Swashbuckle.AspNetCore.dll",
+        "lib/netstandard1.6/Swashbuckle.AspNetCore.dll",
+        "swashbuckle.aspnetcore.3.0.0.nupkg.sha512",
         "swashbuckle.aspnetcore.nuspec"
       ]
     },
@@ -7840,16 +7548,18 @@
         "swashbuckle.aspnetcore.swaggergen.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/4.0.1": {
-      "sha512": "d2U7NyV0e4UhyCzAVK9QHm0iz2QoVPUa9XzJ/Gr0rn/jBZWFpVLvigKv0vxFzO2E793sY605+4h885gvCdKSxQ==",
+    "Swashbuckle.AspNetCore.SwaggerUI/3.0.0": {
+      "sha512": "Gg3rELfq7qJOx8d4xO6hvqSdhMk9ofQCdtLVjBAAVyKehkJRCqiXUO+hJ+/GeEngkaLEglaK/+6an4gC/AxOlg==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggerui/4.0.1",
+      "path": "swashbuckle.aspnetcore.swaggerui/3.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "swashbuckle.aspnetcore.swaggerui.4.0.1.nupkg.sha512",
+        "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.dll",
+        "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.xml",
+        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll",
+        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.xml",
+        "swashbuckle.aspnetcore.swaggerui.3.0.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
@@ -7858,8 +7568,6 @@
       "type": "package",
       "path": "system.appcontext/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7942,8 +7650,6 @@
       "type": "package",
       "path": "system.collections/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8010,8 +7716,6 @@
       "type": "package",
       "path": "system.collections.concurrent/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8101,8 +7805,6 @@
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8140,8 +7842,6 @@
       "type": "package",
       "path": "system.collections.specialized/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8268,8 +7968,6 @@
       "type": "package",
       "path": "system.console/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8380,8 +8078,6 @@
       "type": "package",
       "path": "system.diagnostics.contracts/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8440,8 +8136,6 @@
       "type": "package",
       "path": "system.diagnostics.debug/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8533,8 +8227,6 @@
       "type": "package",
       "path": "system.diagnostics.fileversioninfo/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8575,8 +8267,6 @@
       "type": "package",
       "path": "system.diagnostics.stacktrace/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8615,8 +8305,6 @@
       "type": "package",
       "path": "system.diagnostics.tools/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8672,8 +8360,6 @@
       "type": "package",
       "path": "system.diagnostics.tracing/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8762,8 +8448,6 @@
       "type": "package",
       "path": "system.dynamic.runtime/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8833,8 +8517,6 @@
       "type": "package",
       "path": "system.globalization/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8901,8 +8583,6 @@
       "type": "package",
       "path": "system.globalization.calendars/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8939,8 +8619,6 @@
       "type": "package",
       "path": "system.globalization.extensions/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8980,8 +8658,6 @@
       "type": "package",
       "path": "system.identitymodel.tokens.jwt/5.2.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net45/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net451/System.IdentityModel.Tokens.Jwt.dll",
@@ -8997,8 +8673,6 @@
       "type": "package",
       "path": "system.interactive.async/3.1.1",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net45/System.Interactive.Async.dll",
         "lib/net45/System.Interactive.Async.xml",
         "lib/net46/System.Interactive.Async.dll",
@@ -9016,8 +8690,6 @@
       "type": "package",
       "path": "system.io/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9097,8 +8769,6 @@
       "type": "package",
       "path": "system.io.compression/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9168,8 +8838,6 @@
       "type": "package",
       "path": "system.io.filesystem/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9206,8 +8874,6 @@
       "type": "package",
       "path": "system.io.filesystem.primitives/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9267,8 +8933,6 @@
       "type": "package",
       "path": "system.linq/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9334,13 +8998,37 @@
         "system.linq.nuspec"
       ]
     },
+    "System.Linq.Dynamic.Core/1.0.9": {
+      "sha512": "kXXqUk3nBlYGzPhQ2fx+5ybh2vN0u1QsfhBR1LmofYwNyGllCOUUV9bPygmXGUFfebLeKaEF1uSLWgBUEhj8oQ==",
+      "type": "package",
+      "path": "system.linq.dynamic.core/1.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/System.Linq.Dynamic.Core.dll",
+        "lib/net35/System.Linq.Dynamic.Core.xml",
+        "lib/net40/System.Linq.Dynamic.Core.dll",
+        "lib/net40/System.Linq.Dynamic.Core.xml",
+        "lib/net45/System.Linq.Dynamic.Core.dll",
+        "lib/net45/System.Linq.Dynamic.Core.xml",
+        "lib/net46/System.Linq.Dynamic.Core.dll",
+        "lib/net46/System.Linq.Dynamic.Core.xml",
+        "lib/netstandard1.3/System.Linq.Dynamic.Core.dll",
+        "lib/netstandard1.3/System.Linq.Dynamic.Core.xml",
+        "lib/netstandard2.0/System.Linq.Dynamic.Core.dll",
+        "lib/netstandard2.0/System.Linq.Dynamic.Core.xml",
+        "lib/uap10.0/System.Linq.Dynamic.Core.dll",
+        "lib/uap10.0/System.Linq.Dynamic.Core.pri",
+        "lib/uap10.0/System.Linq.Dynamic.Core.xml",
+        "system.linq.dynamic.core.1.0.9.nupkg.sha512",
+        "system.linq.dynamic.core.nuspec"
+      ]
+    },
     "System.Linq.Expressions/4.3.0": {
       "sha512": "PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==",
       "type": "package",
       "path": "system.linq.expressions/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9418,13 +9106,11 @@
         "system.linq.expressions.nuspec"
       ]
     },
-    "System.Linq.Queryable/4.3.0": {
-      "sha512": "In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
+    "System.Linq.Queryable/4.0.1": {
+      "sha512": "Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "type": "package",
-      "path": "system.linq.queryable/4.3.0",
+      "path": "system.linq.queryable/4.0.1",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/monoandroid10/_._",
@@ -9473,7 +9159,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.linq.queryable.4.3.0.nupkg.sha512",
+        "system.linq.queryable.4.0.1.nupkg.sha512",
         "system.linq.queryable.nuspec"
       ]
     },
@@ -9507,8 +9193,6 @@
       "type": "package",
       "path": "system.net.http/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/Xamarinmac20/_._",
@@ -9589,8 +9273,6 @@
       "type": "package",
       "path": "system.net.primitives/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9733,8 +9415,6 @@
       "type": "package",
       "path": "system.objectmodel/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9803,8 +9483,6 @@
       "type": "package",
       "path": "system.private.datacontractserialization/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.3/System.Private.DataContractSerialization.dll",
@@ -9819,8 +9497,6 @@
       "type": "package",
       "path": "system.reflection/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9900,8 +9576,6 @@
       "type": "package",
       "path": "system.reflection.emit/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9936,8 +9610,6 @@
       "type": "package",
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9981,8 +9653,6 @@
       "type": "package",
       "path": "system.reflection.emit.lightweight/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10026,8 +9696,6 @@
       "type": "package",
       "path": "system.reflection.extensions/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10104,8 +9772,6 @@
       "type": "package",
       "path": "system.reflection.primitives/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10161,8 +9827,6 @@
       "type": "package",
       "path": "system.reflection.typeextensions/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10215,8 +9879,6 @@
       "type": "package",
       "path": "system.resources.resourcemanager/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10272,8 +9934,6 @@
       "type": "package",
       "path": "system.runtime/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10389,8 +10049,6 @@
       "type": "package",
       "path": "system.runtime.extensions/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10470,8 +10128,6 @@
       "type": "package",
       "path": "system.runtime.handles/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10508,8 +10164,6 @@
       "type": "package",
       "path": "system.runtime.interopservices/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10601,8 +10255,6 @@
       "type": "package",
       "path": "system.runtime.interopservices.runtimeinformation/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10636,8 +10288,6 @@
       "type": "package",
       "path": "system.runtime.numerics/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10693,8 +10343,6 @@
       "type": "package",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10766,8 +10414,6 @@
       "type": "package",
       "path": "system.runtime.serialization.xml/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10880,8 +10526,6 @@
       "type": "package",
       "path": "system.security.claims/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10919,8 +10563,6 @@
       "type": "package",
       "path": "system.security.cryptography.algorithms/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11023,8 +10665,6 @@
       "type": "package",
       "path": "system.security.cryptography.csp/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11055,8 +10695,6 @@
       "type": "package",
       "path": "system.security.cryptography.encoding/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11096,8 +10734,6 @@
       "type": "package",
       "path": "system.security.cryptography.openssl/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll",
@@ -11145,8 +10781,6 @@
       "type": "package",
       "path": "system.security.cryptography.primitives/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11174,8 +10808,6 @@
       "type": "package",
       "path": "system.security.cryptography.x509certificates/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11272,8 +10904,6 @@
       "type": "package",
       "path": "system.security.principal/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11374,8 +11004,6 @@
       "type": "package",
       "path": "system.text.encoding/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11490,8 +11118,6 @@
       "type": "package",
       "path": "system.text.encoding.extensions/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11577,8 +11203,6 @@
       "type": "package",
       "path": "system.text.regularexpressions/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11661,8 +11285,6 @@
       "type": "package",
       "path": "system.threading/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11753,8 +11375,6 @@
       "type": "package",
       "path": "system.threading.tasks/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11860,8 +11480,6 @@
       "type": "package",
       "path": "system.threading.tasks.parallel/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11917,8 +11535,6 @@
       "type": "package",
       "path": "system.threading.thread/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11957,8 +11573,6 @@
       "type": "package",
       "path": "system.valuetuple/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/.xml",
@@ -11974,8 +11588,6 @@
       "type": "package",
       "path": "system.xml.readerwriter/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12046,8 +11658,6 @@
       "type": "package",
       "path": "system.xml.xdocument/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12116,8 +11726,6 @@
       "type": "package",
       "path": "system.xml.xmldocument/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12155,8 +11763,6 @@
       "type": "package",
       "path": "system.xml.xmlserializer/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12226,8 +11832,6 @@
       "type": "package",
       "path": "system.xml.xpath/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12265,8 +11869,6 @@
       "type": "package",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12299,132 +11901,6 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "wilx.System.Linq.Dynamic.Core/2.1.0": {
-      "sha512": "tX2xSCBanJpIDYXYnLSRkO3eW63hkceFzGNEidm+rATH/JZ93AAqnocpn63tFo19GD0Mw9jaPMD7ztkQzSqUoQ==",
-      "type": "package",
-      "path": "wilx.system.linq.dynamic.core/2.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.AspNetCore.dll",
-        "lib/netstandard2.0/Microsoft.Win32.Primitives.dll",
-        "lib/netstandard2.0/System.AppContext.dll",
-        "lib/netstandard2.0/System.Collections.Concurrent.dll",
-        "lib/netstandard2.0/System.Collections.NonGeneric.dll",
-        "lib/netstandard2.0/System.Collections.Specialized.dll",
-        "lib/netstandard2.0/System.Collections.dll",
-        "lib/netstandard2.0/System.ComponentModel.Composition.dll",
-        "lib/netstandard2.0/System.ComponentModel.EventBasedAsync.dll",
-        "lib/netstandard2.0/System.ComponentModel.Primitives.dll",
-        "lib/netstandard2.0/System.ComponentModel.TypeConverter.dll",
-        "lib/netstandard2.0/System.ComponentModel.dll",
-        "lib/netstandard2.0/System.Console.dll",
-        "lib/netstandard2.0/System.Core.dll",
-        "lib/netstandard2.0/System.Data.Common.dll",
-        "lib/netstandard2.0/System.Data.dll",
-        "lib/netstandard2.0/System.Diagnostics.Contracts.dll",
-        "lib/netstandard2.0/System.Diagnostics.Debug.dll",
-        "lib/netstandard2.0/System.Diagnostics.FileVersionInfo.dll",
-        "lib/netstandard2.0/System.Diagnostics.Process.dll",
-        "lib/netstandard2.0/System.Diagnostics.StackTrace.dll",
-        "lib/netstandard2.0/System.Diagnostics.TextWriterTraceListener.dll",
-        "lib/netstandard2.0/System.Diagnostics.Tools.dll",
-        "lib/netstandard2.0/System.Diagnostics.TraceSource.dll",
-        "lib/netstandard2.0/System.Diagnostics.Tracing.dll",
-        "lib/netstandard2.0/System.Drawing.Primitives.dll",
-        "lib/netstandard2.0/System.Drawing.dll",
-        "lib/netstandard2.0/System.Dynamic.Runtime.dll",
-        "lib/netstandard2.0/System.Globalization.Calendars.dll",
-        "lib/netstandard2.0/System.Globalization.Extensions.dll",
-        "lib/netstandard2.0/System.Globalization.dll",
-        "lib/netstandard2.0/System.IO.Compression.FileSystem.dll",
-        "lib/netstandard2.0/System.IO.Compression.ZipFile.dll",
-        "lib/netstandard2.0/System.IO.Compression.dll",
-        "lib/netstandard2.0/System.IO.FileSystem.DriveInfo.dll",
-        "lib/netstandard2.0/System.IO.FileSystem.Primitives.dll",
-        "lib/netstandard2.0/System.IO.FileSystem.Watcher.dll",
-        "lib/netstandard2.0/System.IO.FileSystem.dll",
-        "lib/netstandard2.0/System.IO.IsolatedStorage.dll",
-        "lib/netstandard2.0/System.IO.MemoryMappedFiles.dll",
-        "lib/netstandard2.0/System.IO.Pipes.dll",
-        "lib/netstandard2.0/System.IO.UnmanagedMemoryStream.dll",
-        "lib/netstandard2.0/System.IO.dll",
-        "lib/netstandard2.0/System.Linq.Dynamic.Core.dll",
-        "lib/netstandard2.0/System.Linq.Expressions.dll",
-        "lib/netstandard2.0/System.Linq.Parallel.dll",
-        "lib/netstandard2.0/System.Linq.Queryable.dll",
-        "lib/netstandard2.0/System.Linq.dll",
-        "lib/netstandard2.0/System.Net.Http.dll",
-        "lib/netstandard2.0/System.Net.NameResolution.dll",
-        "lib/netstandard2.0/System.Net.NetworkInformation.dll",
-        "lib/netstandard2.0/System.Net.Ping.dll",
-        "lib/netstandard2.0/System.Net.Primitives.dll",
-        "lib/netstandard2.0/System.Net.Requests.dll",
-        "lib/netstandard2.0/System.Net.Security.dll",
-        "lib/netstandard2.0/System.Net.Sockets.dll",
-        "lib/netstandard2.0/System.Net.WebHeaderCollection.dll",
-        "lib/netstandard2.0/System.Net.WebSockets.Client.dll",
-        "lib/netstandard2.0/System.Net.WebSockets.dll",
-        "lib/netstandard2.0/System.Net.dll",
-        "lib/netstandard2.0/System.Numerics.dll",
-        "lib/netstandard2.0/System.ObjectModel.dll",
-        "lib/netstandard2.0/System.Reflection.Extensions.dll",
-        "lib/netstandard2.0/System.Reflection.Primitives.dll",
-        "lib/netstandard2.0/System.Reflection.dll",
-        "lib/netstandard2.0/System.Resources.Reader.dll",
-        "lib/netstandard2.0/System.Resources.ResourceManager.dll",
-        "lib/netstandard2.0/System.Resources.Writer.dll",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.VisualC.dll",
-        "lib/netstandard2.0/System.Runtime.Extensions.dll",
-        "lib/netstandard2.0/System.Runtime.Handles.dll",
-        "lib/netstandard2.0/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "lib/netstandard2.0/System.Runtime.InteropServices.dll",
-        "lib/netstandard2.0/System.Runtime.Numerics.dll",
-        "lib/netstandard2.0/System.Runtime.Serialization.Formatters.dll",
-        "lib/netstandard2.0/System.Runtime.Serialization.Json.dll",
-        "lib/netstandard2.0/System.Runtime.Serialization.Primitives.dll",
-        "lib/netstandard2.0/System.Runtime.Serialization.Xml.dll",
-        "lib/netstandard2.0/System.Runtime.Serialization.dll",
-        "lib/netstandard2.0/System.Runtime.dll",
-        "lib/netstandard2.0/System.Security.Claims.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.Algorithms.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.Csp.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.Encoding.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.Primitives.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.X509Certificates.dll",
-        "lib/netstandard2.0/System.Security.Principal.dll",
-        "lib/netstandard2.0/System.Security.SecureString.dll",
-        "lib/netstandard2.0/System.ServiceModel.Web.dll",
-        "lib/netstandard2.0/System.Text.Encoding.Extensions.dll",
-        "lib/netstandard2.0/System.Text.Encoding.dll",
-        "lib/netstandard2.0/System.Text.RegularExpressions.dll",
-        "lib/netstandard2.0/System.Threading.Overlapped.dll",
-        "lib/netstandard2.0/System.Threading.Tasks.Parallel.dll",
-        "lib/netstandard2.0/System.Threading.Tasks.dll",
-        "lib/netstandard2.0/System.Threading.Thread.dll",
-        "lib/netstandard2.0/System.Threading.ThreadPool.dll",
-        "lib/netstandard2.0/System.Threading.Timer.dll",
-        "lib/netstandard2.0/System.Threading.dll",
-        "lib/netstandard2.0/System.Transactions.dll",
-        "lib/netstandard2.0/System.ValueTuple.dll",
-        "lib/netstandard2.0/System.Web.dll",
-        "lib/netstandard2.0/System.Windows.dll",
-        "lib/netstandard2.0/System.Xml.Linq.dll",
-        "lib/netstandard2.0/System.Xml.ReaderWriter.dll",
-        "lib/netstandard2.0/System.Xml.Serialization.dll",
-        "lib/netstandard2.0/System.Xml.XDocument.dll",
-        "lib/netstandard2.0/System.Xml.XPath.XDocument.dll",
-        "lib/netstandard2.0/System.Xml.XPath.dll",
-        "lib/netstandard2.0/System.Xml.XmlDocument.dll",
-        "lib/netstandard2.0/System.Xml.XmlSerializer.dll",
-        "lib/netstandard2.0/System.Xml.dll",
-        "lib/netstandard2.0/System.dll",
-        "lib/netstandard2.0/mscorlib.dll",
-        "lib/netstandard2.0/netstandard.dll",
-        "wilx.system.linq.dynamic.core.2.1.0.nupkg.sha512",
-        "wilx.system.linq.dynamic.core.nuspec"
-      ]
-    },
     "Alura.WebAPI.DAL.Livros/1.0.0": {
       "type": "project",
       "path": "../Alura.WebAPI.DAL.Livros/Alura.WebAPI.DAL.Livros.csproj",
@@ -12442,11 +11918,10 @@
       "Alura.WebAPI.Model >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Mvc.Versioning >= 2.3.0",
-      "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Swashbuckle.AspNetCore >= 4.0.1",
+      "Swashbuckle.AspNetCore >= 3.0.0",
       "Swashbuckle.AspNetCore.Annotations >= 4.0.1",
-      "wilx.System.Linq.Dynamic.Core >= 2.1.0"
+      "System.Linq.Dynamic.Core >= 1.0.9"
     ]
   },
   "packageFolders": {
@@ -12510,11 +11985,6 @@
             "target": "Package",
             "version": "[2.3.0, )"
           },
-          "Microsoft.AspNetCore.Razor.Design": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[2.1.2, )"
-          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -12523,15 +11993,15 @@
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
-            "version": "[4.0.1, )"
+            "version": "[3.0.0, )"
           },
           "Swashbuckle.AspNetCore.Annotations": {
             "target": "Package",
             "version": "[4.0.1, )"
           },
-          "wilx.System.Linq.Dynamic.Core": {
+          "System.Linq.Dynamic.Core": {
             "target": "Package",
-            "version": "[2.1.0, )"
+            "version": "[1.0.9, )"
           }
         },
         "imports": [

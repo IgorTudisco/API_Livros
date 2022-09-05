@@ -16,19 +16,35 @@ namespace Alura.ListaLeitura.Modelos
         public TipoListaLeitura Lista { get; set; }
     }
 
-    // Classe/tipo que muda a minha imagem para uma string.
-    // Essa anotação, mostra o nome que você escolheu no retorno.
-    [XmlType("Livro")] 
+    [XmlType("Livro")]
     public class LivroApi
     {
         public int Id { get; set; }
+        /// <summary>
+        /// Título do livro.
+        /// </summary>
         public string Titulo { get; set; }
+        /// <summary>
+        /// Subtítulo do livro.
+        /// </summary>
         public string Subtitulo { get; set; }
-        public string Autor { get; set; }
+        /// <summary>
+        /// Breve resumo com principais idéias do livro.
+        /// </summary>
         public string Resumo { get; set; }
-        public string Capa { get; set; }
+        /// <summary>
+        /// URI para a imagem de capa do livro.
+        /// </summary>
+        public string ImagemCapa { get; set; }
+        /// <summary>
+        /// Nome do autor.
+        /// </summary>
+        public string Autor { get; set; }
+        /// <summary>
+        /// Tipo de lista onde o livro está.
+        /// </summary>
+        /// <example>ParaLer, Lendo ou Lidos</example>
         public string Lista { get; set; }
-                
     }
 
     public class LivroUpload

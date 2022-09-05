@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5Iz35IDm7a+dyk3ekuDkZuMXKYVeO6ZoJeS96s9xM4etSHS5RTr9d/gn5B4rK8wPDdPBd6giLd3oNUtxAwdKCw==",
+  "dgSpecHash": "I/OXDc2rOijwLCL+ZD1MVnNyuDcu7KXgYKrq5uiyKXVHEn4f4749EEnrM/5Oeva0rykp5cPiDeEcUTZORSDEmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\igort\\Documents\\Cursos\\Alura\\C#_ASP.NET_CORE_REST_API\\Alura.WebAPI\\Alura.WebAPI.WebApp\\Alura.WebAPI.WebApp.csproj",
   "expectedPackageFiles": [
@@ -157,11 +157,11 @@
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.0\\microsoft.extensions.primitives.2.1.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.extensions.webencoders\\2.1.0\\microsoft.extensions.webencoders.2.1.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.2.4\\microsoft.identitymodel.jsonwebtokens.5.2.4.nupkg.sha512",
-    "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.logging\\5.2.4\\microsoft.identitymodel.logging.5.2.4.nupkg.sha512",
+    "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.logging\\5.3.0\\microsoft.identitymodel.logging.5.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.protocols\\5.2.0\\microsoft.identitymodel.protocols.5.2.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\5.2.0\\microsoft.identitymodel.protocols.openidconnect.5.2.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.protocols.wsfederation\\5.2.0\\microsoft.identitymodel.protocols.wsfederation.5.2.0.nupkg.sha512",
-    "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.2.4\\microsoft.identitymodel.tokens.5.2.4.nupkg.sha512",
+    "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.3.0\\microsoft.identitymodel.tokens.5.3.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.tokens.saml\\5.2.0\\microsoft.identitymodel.tokens.saml.5.2.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.identitymodel.xml\\5.2.0\\microsoft.identitymodel.xml.5.2.0.nupkg.sha512",
     "C:\\Users\\igort\\.nuget\\packages\\microsoft.net.http.headers\\2.1.0\\microsoft.net.http.headers.2.1.0.nupkg.sha512",

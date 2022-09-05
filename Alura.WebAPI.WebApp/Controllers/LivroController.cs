@@ -28,7 +28,18 @@ namespace Alura.ListaLeitura.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _api.PostLivroAsync(model);
+                try
+                {
+                    await _api.PostLivroAsync(model);
+                }
+                catch (System.Exception e)
+                {
+                    //Logar
+                    System.Console.WriteLine($"Erro: {e.Message}");
+                    //posso mandar email!
+                    //depois continuar o fluxo
+                    throw;
+                }
                 return RedirectToAction("Index", "Home");
             }
             return View(model);

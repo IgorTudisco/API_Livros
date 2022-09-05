@@ -1,30 +1,21 @@
-﻿using Alura.ListaLeitura.Modelos;
-using Alura.ListaLeitura.Persistencia;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Alura.ListaLeitura.Modelos;
+using Alura.ListaLeitura.Persistencia;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Alura.ListaLeitura.Api.Controllers
 {
-    /* Estendendo do controlador que vai restrirgi
-     * as opções da minha API e me dar mais segurança
-    */
-    // Protegendo a minha aplicação com a anotação Authorize.
     [Authorize]
-    // Atributo que indentifica um controlador de uma API
     [ApiController]
-    /* Anotação que vai pegar o nome do meu controlador.
-     * Esse nome será usado nas minhas rotas/endpoint.
-    */
     [ApiVersion("1.0")]
-    [ApiExplorerSettings(GroupName = "v1")]
-    [Route("api/v{version:apiVersion}/[Controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class LivrosController : ControllerBase
     {
-
         private readonly IRepository<Livro> _repo;
 
         public LivrosController(IRepository<Livro> repository)
@@ -32,77 +23,52 @@ namespace Alura.ListaLeitura.Api.Controllers
             _repo = repository;
         }
 
-        // Método que vai me trazer uma lista de obj
+        [HttpGet]
+        [ProducesResponseType(statusCode: 200, Type = typeof(List<LivroApi>))]
         public IActionResult ListaDeLivros()
         {
-            /*
-             * Para trazer os meus obj do meu db
-             * eu passo um select do linq que é parecido com
-             * os comandos do DB.
-             */
             var lista = _repo.All.Select(l => l.ToApi()).ToList();
             return Ok(lista);
         }
 
-        // Informando que o meu id vai vir pela rota.
         [HttpGet("{id}")]
         public IActionResult Recuperar(int id)
         {
-
             var model = _repo.Find(id);
             if (model == null)
             {
-                return BadRequest();
+                return NotFound();
             }
-
-            /* Como não tenho mais o view e nem o json,
-             * no ControllerBase. Eu uso o proprio status como retorno.
-            */
             return Ok(model.ToApi());
-
         }
 
-        // Criando uma rota para a minha capa.
-        // Esse método trata a minha capa.
         [HttpGet("{id}/capa")]
         public IActionResult ImagemCapa(int id)
         {
             byte[] img = _repo.All
-                              .Where(l => l.Id == id)
-                              .Select(l => l.ImagemCapa)
-                              .FirstOrDefault();
+                .Where(l => l.Id == id)
+                .Select(l => l.ImagemCapa)
+                .FirstOrDefault();
             if (img != null)
             {
-
-                return File(img, "imagem/png");
-
+                return File(img, "image/png");
             }
-
-            return File("~/imagens/capas/capa-vazia.png", "imagem/png");
-
+            return File("~/images/capas/capa-vazia.png", "image/png");
         }
 
-        // Criando um método que vai incluir um novo livro
         [HttpPost]
         public IActionResult Incluir([FromForm] LivroUpload model)
         {
-
             if (ModelState.IsValid)
             {
-
-                // Vai converter um LivroUpload para um Livro.
                 var livro = model.ToLivro();
                 _repo.Incluir(livro);
                 var uri = Url.Action("Recuperar", new { id = livro.Id });
-                return Created(uri, livro);
-
+                return Created(uri, livro); //201
             }
-
             return BadRequest();
-
         }
 
-        // Método de alteração/atualização
         [HttpPut]
         public IActionResult Alterar([FromForm] LivroUpload model)
         {
@@ -111,43 +77,27 @@ namespace Alura.ListaLeitura.Api.Controllers
                 var livro = model.ToLivro();
                 if (model.Capa == null)
                 {
-                    /* Função que irá pesquisar e comparar
-                     * os IDs para alterar o livro certo
-                    */
                     livro.ImagemCapa = _repo.All
                         .Where(l => l.Id == livro.Id)
                         .Select(l => l.ImagemCapa)
                         .FirstOrDefault();
-
                 }
-
                 _repo.Alterar(livro);
-                return Ok(); // 200
-
+                return Ok(); //200
             }
-
-            return BadRequest(); // 400
-
+            return BadRequest();
         }
 
-        // Método de deleção
-        // Informando que o meu id virá na rota.
         [HttpDelete("{id}")]
         public IActionResult Remover(int id)
         {
-
             var model = _repo.Find(id);
             if (model == null)
             {
-
                 return NotFound();
-
             }
-
             _repo.Excluir(model);
-            return NoContent(); // 203
-
+            return NoContent(); //203
         }
-
     }
 }
